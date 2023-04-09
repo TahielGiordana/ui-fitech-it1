@@ -46,6 +46,7 @@ public class Home extends JFrame{
 
             System.out.println("Se va validar persona con maquina: Persona ->" + person);
             System.out.println("Codigo Maquina -> " + codeMaquina);
+            System.out.println("Probando");
 
             System.out.println("Maquina hardcodeada -> " + machine);
             homeController.validar(person, machine);
