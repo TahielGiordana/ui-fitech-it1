@@ -28,7 +28,6 @@ public class Home extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setMinimumSize(new Dimension(500,200));
-        setTitle("Sistema Galaxy Shoes");
         setBounds(10, 10, 1000, 1000);
 
     }
