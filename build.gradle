@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'org.ui-fitech'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/releases"
+        }
+
+        maven {
+            url 'https://jitpack.io'
+
+        }
+    }
+}
+
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'com.intellij:forms_rt:7.0.3'
+    implementation 'com.github.FerJoanEne:core-fitech:develop-SNAPSHOT'
+}
+
+test {
+    useJUnitPlatform()
+}
