@@ -200,8 +200,8 @@
         <item itemvalue="Application.Application" />
         <item itemvalue="Gradle.ui [jar]" />
         <item itemvalue="Gradle.ui [assemble build]" />
-        <item itemvalue="Application.Home" />
         <item itemvalue="Application.HomeController" />
+        <item itemvalue="Application.Home" />
       </list>
     </recent_temporary>
   </component>
