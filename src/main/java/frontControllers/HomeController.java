@@ -5,8 +5,6 @@ import pojos.Person;
 import services.RoutineFinder;
 import validators.RoutineValidator;
 
-import java.util.Arrays;
-
 public class HomeController {
 
     /*public static void main(String[] args) {
