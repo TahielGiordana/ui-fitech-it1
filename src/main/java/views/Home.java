@@ -38,7 +38,7 @@ public class Home extends JFrame {
             String name = nameTextField.getText();
             String lastname = lastnameTextField.getText();
             String machineCode = machineTextField.getText();
-            Person person = new Person(name,lastname);
+            Person person = new Person(name,true,null);
             Machine machine =new Machine(machineCode, "Stationary Bike");
 
             System.out.println("Se va validar persona con maquina: Persona ->" + person);
