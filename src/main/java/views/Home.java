@@ -32,7 +32,7 @@ public class Home extends JFrame {
 
     public Home() {
         super(TITLE);
-        setUpUI();
+        createUIComponents();
         setUpActions();
         homeController = new HomeController();
         setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
@@ -41,7 +41,7 @@ public class Home extends JFrame {
         setVisible(true);
     }
 
-    private void setUpUI() {
+    private void createUIComponents() {
         contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
         contentPanel.setBackground(SECONDARY_COLOR);

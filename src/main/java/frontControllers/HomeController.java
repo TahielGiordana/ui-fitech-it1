@@ -3,8 +3,6 @@ package frontControllers;
 import init.InitCore;
 import pojos.Machine;
 import pojos.Person;
-import services.RoutineFinder;
-import validators.RoutineValidator;
 
 public class HomeController {
 
@@ -14,7 +12,7 @@ public class HomeController {
         this.initCore = new InitCore();
     }
 
-    public boolean validar(Person persona, Machine machine){
+    public boolean validate(Person persona, Machine machine){
         return  initCore.executeValidators(persona,machine);
     }
 
