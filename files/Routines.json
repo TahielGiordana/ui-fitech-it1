@@ -1,0 +1,30 @@
+[
+  {
+    "name": "ejercicio_1",
+    "machine": {
+    "code": "A2",
+    "name": "bicicleta"
+    }
+  },
+  {
+    "name": "ejercicio_2",
+    "machine": {
+      "code": "A3",
+      "name": "bicicleta"
+    }
+  },
+  {
+    "name": "ejercicio_3",
+    "machine": {
+      "code": "A4",
+      "name": "bicicleta"
+    }
+  },
+  {
+    "name": "ejercicio_4",
+    "machine": {
+      "code": "A5",
+      "name": "bicicleta"
+    }
+  }
+]
