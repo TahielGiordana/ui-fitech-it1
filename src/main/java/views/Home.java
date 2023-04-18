@@ -8,144 +8,142 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Home extends JFrame {
+    // Constantes
+    private static final int MIN_WIDTH = 600;
+    private static final int MIN_HEIGHT = 600;
+    private static final Color PRIMARY_COLOR = new Color(230, 230, 230);
+    private static final Color SECONDARY_COLOR = new Color(50, 50, 50);
+    private static final Color ACCENT_COLOR = new Color(200, 50, 50);
+    private static final Font TITLE_FONT = new Font("Poppins", Font.BOLD, 48);
+    private static final Font FORM_FONT = new Font("Poppins", Font.PLAIN, 24);
+    private static final String TITLE = "Fitech";
+    private static final String VALID_MACHINE_MESSAGE = "Puede usar la maquina";
+    private static final String INVALID_MACHINE_MESSAGE = "No puede usar la maquina";
+
+    // Componentes de la interfaz gráfica
     private JPanel contentPanel;
-    private JTextField nameTextField;
-
-    private JTextField lastnameTextField;
-
-    private JTextField machineTextField;
-
+    private JTextField userNameTextField;
+    private JTextField machineSerialCodeTextField;
     private JButton validatorBtn;
+    private JLabel resultLabel;
 
+    // Controlador
     private HomeController homeController;
 
-    public Home(){
-        super("Fitech");
-        createUIComponents();
-        setContentPane(contentPanel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(600,600));
-        setResizable(false);
-
-        addActions();
+    public Home() {
+        super(TITLE);
+        setUpUI();
+        setUpActions();
         homeController = new HomeController();
+        setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
     }
 
-    private void addActions(){
-        validatorBtn.addActionListener(e -> {
-            String name = nameTextField.getText();
-            String lastname = lastnameTextField.getText();
-            String machineCode = machineTextField.getText();
-            Person person = new Person(name,true,null);
-            Machine machine =new Machine(machineCode, "Stationary Bike");
-
-            System.out.println("Se va validar persona con maquina: Persona ->" + person);
-            System.out.println("Codigo Maquina -> " + machineCode);
-            System.out.println("Probando");
-
-            System.out.println("Maquina hardcodeada -> " + machine);
-            homeController.validar(person, machine);
-        });
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-        Color primaryColor = new Color(230, 230, 230);
-        Color secondaryColor = new Color(50,50,50);
-        Color accentColor = new Color(200, 50, 50);
-
-        Font titleFont = new Font("Poppins", Font.BOLD,48);
-        Font formFont = new Font("Poppins", Font.PLAIN, 24);
-
+    private void setUpUI() {
         contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
-        contentPanel.setBackground(secondaryColor);
+        contentPanel.setBackground(SECONDARY_COLOR);
 
         JPanel titlePanel = new JPanel();
         titlePanel.setBackground(null);
-        JLabel title = new JLabel("Fitech");
-        title.setForeground(accentColor);
-        title.setFont(titleFont);
+        JLabel title = new JLabel(TITLE);
+        title.setForeground(ACCENT_COLOR);
+        title.setFont(TITLE_FONT);
         titlePanel.add(title);
 
         JPanel formPanel = new JPanel();
-
-        GridLayout formLayout = new GridLayout(3,1);
+        GridLayout formLayout = new GridLayout(3, 1);
         formPanel.setLayout(formLayout);
         formPanel.setBackground(null);
 
-        JLabel nameLabel = new JLabel("Nombre:");
-        nameLabel.setForeground(primaryColor);
-        nameLabel.setFont(formFont);
+        JLabel nameLabel = new JLabel("Nombre de usuario:");
+        nameLabel.setForeground(PRIMARY_COLOR);
+        nameLabel.setFont(FORM_FONT);
 
-        nameTextField = new JTextField();
-        nameTextField.setForeground(secondaryColor);
-        nameTextField.setBackground(primaryColor);
-        nameTextField.setFont(formFont);
-        nameTextField.setColumns(20);
-        nameTextField.setMargin(new Insets(2,5,2,5));
+        userNameTextField = new JTextField();
+        userNameTextField.setForeground(SECONDARY_COLOR);
+        userNameTextField.setBackground(PRIMARY_COLOR);
+        userNameTextField.setFont(FORM_FONT);
+        userNameTextField.setColumns(20);
+        userNameTextField.setMargin(new Insets(2, 5, 2, 5));
 
         JPanel nameWrapper = new JPanel();
         nameWrapper.setBackground(null);
         nameWrapper.setLayout(new FlowLayout());
         nameWrapper.add(nameLabel);
-        nameWrapper.add(nameTextField);
+        nameWrapper.add(userNameTextField);
         formPanel.add(nameWrapper);
 
-        JLabel lastnameLabel = new JLabel("Apellido:");
-        lastnameLabel.setForeground(primaryColor);
-        lastnameLabel.setFont(formFont);
-        lastnameLabel.setHorizontalAlignment(SwingConstants.LEFT);
-
-        lastnameTextField = new JTextField();
-        lastnameTextField.setForeground(secondaryColor);
-        lastnameTextField.setBackground(primaryColor);
-        lastnameTextField.setFont(formFont);
-        lastnameTextField.setColumns(20);
-        lastnameTextField.setMargin(new Insets(2,5,2,5));
-
-        JPanel lastnameWrapper = new JPanel();
-        lastnameWrapper.setBackground(null);
-        lastnameWrapper.setLayout(new FlowLayout());
-        lastnameWrapper.add(lastnameLabel);
-        lastnameWrapper.add(lastnameTextField);
-        formPanel.add(lastnameWrapper);
-
-        JLabel machineLabel = new JLabel("Máquina:");
-        machineLabel.setForeground(primaryColor);
-        machineLabel.setFont(formFont);
+        JLabel machineLabel = new JLabel("Codigo de maquina:");
+        machineLabel.setForeground(PRIMARY_COLOR);
+        machineLabel.setFont(FORM_FONT);
         machineLabel.setHorizontalAlignment(SwingConstants.LEFT);
 
-        machineTextField = new JTextField();
-        machineTextField.setForeground(secondaryColor);
-        machineTextField.setBackground(primaryColor);
-        machineTextField.setFont(formFont);
-        machineTextField.setColumns(20);
-        machineTextField.setMargin(new Insets(2,5,2,5));
+        machineSerialCodeTextField = new JTextField();
+        machineSerialCodeTextField.setForeground(SECONDARY_COLOR);
+        machineSerialCodeTextField.setBackground(PRIMARY_COLOR);
+        machineSerialCodeTextField.setFont(FORM_FONT);
+        machineSerialCodeTextField.setColumns(20);
+        machineSerialCodeTextField.setMargin(new Insets(2, 5, 2, 5));
 
         JPanel machineWrapper = new JPanel();
         machineWrapper.setBackground(null);
         machineWrapper.setLayout(new FlowLayout());
         machineWrapper.add(machineLabel);
-        machineWrapper.add(machineTextField);
+        machineWrapper.add(machineSerialCodeTextField);
         formPanel.add(machineWrapper);
+
+        resultLabel = new JLabel("");
+        resultLabel.setForeground(ACCENT_COLOR);
+        resultLabel.setFont(FORM_FONT);
+        resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        resultLabel.setVerticalAlignment(SwingConstants.CENTER);
+
 
         JPanel resultPanel = new JPanel();
         resultPanel.setBackground(null);
+        resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.PAGE_AXIS));
+        resultPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+        resultPanel.add(resultLabel);
+
         validatorBtn = new JButton("Validar");
-        validatorBtn.setForeground(accentColor);
-        validatorBtn.setBackground(primaryColor);
+        validatorBtn.setForeground(ACCENT_COLOR);
+        validatorBtn.setBackground(PRIMARY_COLOR);
         validatorBtn.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(accentColor,2),
-                BorderFactory.createEmptyBorder(5,20,5,20)
+                BorderFactory.createLineBorder(ACCENT_COLOR, 2),
+                BorderFactory.createEmptyBorder(5, 20, 5, 20)
         ));
-        validatorBtn.setFont(formFont);
-        resultPanel.add(validatorBtn);
+        validatorBtn.setFont(FORM_FONT);
+        //resultPanel.add(validatorBtn);
+
+        JPanel buttonWrapper = new JPanel();
+        buttonWrapper.setBackground(null);
+        buttonWrapper.setLayout(new FlowLayout());
+        buttonWrapper.add(validatorBtn);
+        resultPanel.add(buttonWrapper);
 
         contentPanel.add(titlePanel, BorderLayout.NORTH);
         contentPanel.add(formPanel, BorderLayout.CENTER);
         contentPanel.add(resultPanel, BorderLayout.SOUTH);
+
+        setContentPane(contentPanel);
+    }
+
+    private void setUpActions() {
+        validatorBtn.addActionListener(e -> {
+            String userName = userNameTextField.getText();
+            String machineSerialCode = machineSerialCodeTextField.getText();
+            Person person = new Person(userName, true, null);
+            Machine machine = new Machine(machineSerialCode, "Bike");
+
+            boolean machineAvailable = homeController.validate(person, machine);
+            if (machineAvailable) {
+                resultLabel.setText(VALID_MACHINE_MESSAGE);
+            } else {
+                resultLabel.setText(INVALID_MACHINE_MESSAGE);
+            }
+        });
     }
 }
