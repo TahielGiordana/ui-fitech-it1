@@ -16,7 +16,7 @@ public class HomeController {
 
     }*/
 
-    public boolean validar(Person persona, Machine machine){
+    public boolean validate(Person persona, Machine machine){
         RoutineValidator routineValidator = new RoutineValidator();
         boolean validate = routineValidator.validate(persona, machine);
         System.out.println("Validar: " + validate);
