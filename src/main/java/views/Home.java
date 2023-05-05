@@ -39,7 +39,8 @@ public class Home extends JFrame implements Observer {
         super(TITLE);
         this.core = core;
         core.addObserver(this);
-        homeController = new HomeController(this);
+        this.homeController = new HomeController(this);
+
 
         createUIComponents();
         setUpActions();
@@ -47,6 +48,7 @@ public class Home extends JFrame implements Observer {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        homeController.startValidationTask();
     }
 
     private void createUIComponents() {
