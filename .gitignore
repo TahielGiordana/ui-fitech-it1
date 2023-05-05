@@ -1,12 +1,10 @@
+# Project exclude paths
 .gradle/*
 .gradle
 /.gradle/*
 /build
 out/*
 build/classes/java/main/
-lib
-/lib/*
-/lib
 .idea
 *.iws
 *.iml
@@ -18,3 +16,4 @@ lib
 .idea/**/dictionaries
 .idea/**/shelf
 .idea/gradle.xml
+
