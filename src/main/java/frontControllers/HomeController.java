@@ -1,19 +1,17 @@
 package frontControllers;
 
-import init.InitCore;
-import pojos.Machine;
-import pojos.Person;
+import init.Core;
 
 public class HomeController {
 
-    private InitCore initCore;
+    private Core Core;
 
     public HomeController(){
-        this.initCore = new InitCore();
+        this.Core = new Core("C:/Users/TALIGENT/IdeaProjects/ui-fitech");
     }
 
-    public boolean validate(Person persona, Machine machine){
-        return  initCore.executeValidators(persona,machine);
+    public void validate(String userName, String machineCode){
+        Core.validate(userName,machineCode);
     }
 
 }

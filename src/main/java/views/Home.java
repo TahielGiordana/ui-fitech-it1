@@ -1,8 +1,6 @@
 package views;
 
 import frontControllers.HomeController;
-import pojos.Machine;
-import pojos.Person;
 
 import javax.swing.*;
 import java.awt.*;
@@ -134,16 +132,16 @@ public class Home extends JFrame {
     private void setUpActions() {
         validatorBtn.addActionListener(e -> {
             String userName = userNameTextField.getText();
-            String machineSerialCode = machineSerialCodeTextField.getText();
-            Person person = new Person(userName, true, null);
-            Machine machine = new Machine(machineSerialCode, "Bike");
+            String machineCode = machineSerialCodeTextField.getText();
 
-            boolean machineAvailable = homeController.validate(person, machine);
+            homeController.validate(userName, machineCode);
+            /*
+            boolean machineAvailable = homeController.validate(userName, machineCode);
             if (machineAvailable) {
                 resultLabel.setText(VALID_MACHINE_MESSAGE);
             } else {
                 resultLabel.setText(INVALID_MACHINE_MESSAGE);
-            }
+            }*/
         });
     }
 }
