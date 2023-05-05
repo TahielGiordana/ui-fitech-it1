@@ -1,13 +1,16 @@
 package views;
 
 import frontControllers.HomeController;
-import pojos.Machine;
-import pojos.Person;
+import init.Core;
+import interfaces.Observer;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.io.File;
 
-public class Home extends JFrame {
+public class Home extends JFrame implements Observer {
     // Constantes
     private static final int MIN_WIDTH = 600;
     private static final int MIN_HEIGHT = 600;
@@ -29,12 +32,17 @@ public class Home extends JFrame {
 
     // Controlador
     private HomeController homeController;
+    private Core core;
 
-    public Home() {
+
+    public Home(Core core) {
         super(TITLE);
+        this.core = core;
+        core.addObserver(this);
+        homeController = new HomeController(this);
+
         createUIComponents();
         setUpActions();
-        homeController = new HomeController();
         setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -132,18 +140,64 @@ public class Home extends JFrame {
     }
 
     private void setUpActions() {
+        userNameTextField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+            }
+        });
+
+        machineSerialCodeTextField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+            }
+        });
+
         validatorBtn.addActionListener(e -> {
             String userName = userNameTextField.getText();
-            String machineSerialCode = machineSerialCodeTextField.getText();
-            Person person = new Person(userName, true, null);
-            Machine machine = new Machine(machineSerialCode, "Bike");
+            String machineCode = machineSerialCodeTextField.getText();
 
-            boolean machineAvailable = homeController.validate(person, machine);
+            homeController.validate(userName,machineCode);
+            /*
+            boolean machineAvailable = homeController.validate(userName,machineCode);
             if (machineAvailable) {
                 resultLabel.setText(VALID_MACHINE_MESSAGE);
             } else {
                 resultLabel.setText(INVALID_MACHINE_MESSAGE);
-            }
+            }*/
         });
+    }
+
+    public JLabel getResultLabel(){
+        return this.resultLabel;
+    }
+
+    public void update() {
+
+    }
+
+    public Core getCore(){
+        return this.core;
     }
 }

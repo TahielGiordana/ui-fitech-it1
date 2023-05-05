@@ -1,19 +1,28 @@
 package frontControllers;
 
-import init.InitCore;
-import pojos.Machine;
-import pojos.Person;
+import init.Core;
+import interfaces.Observer;
+import views.Home;
 
-public class HomeController {
+import java.io.File;
 
-    private InitCore initCore;
+public class HomeController implements Observer {
 
-    public HomeController(){
-        this.initCore = new InitCore();
+    private Core core;
+    private Home home;
+
+    public HomeController(Home home){
+        this.home = home;
+        this.core = home.getCore();
+        core.addObserver(this);
     }
 
-    public boolean validate(Person persona, Machine machine){
-        return  initCore.executeValidators(persona,machine);
+    public void validate(String userName, String machineCode){
+        core.validate(userName,machineCode);
+    }
+
+    public void update(){
+        this.home.getResultLabel().setText(Boolean.toString(core.getValidationResult()));
     }
 
 }
