@@ -107,34 +107,34 @@ public class HomeView extends JFrame {
         userNameTextField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+                homeController.post(userNameTextField.getText(),machineSerialCodeTextField.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+                homeController.post(userNameTextField.getText(),machineSerialCodeTextField.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+                homeController.post(userNameTextField.getText(),machineSerialCodeTextField.getText());
             }
         });
 
         machineSerialCodeTextField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+                homeController.post(userNameTextField.getText(),machineSerialCodeTextField.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+                homeController.post(userNameTextField.getText(),machineSerialCodeTextField.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
+                homeController.post(userNameTextField.getText(),machineSerialCodeTextField.getText());
             }
         });
     }

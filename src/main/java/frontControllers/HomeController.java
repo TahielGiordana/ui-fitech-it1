@@ -22,12 +22,12 @@ public class HomeController implements Observer {
         t.schedule(new TimerTask() {
             @Override
             public void run() {
-                    validate(validatorManager.getActualUserName(), validatorManager.getActualMachineCode());
+                post(validatorManager.getActualUserName(), validatorManager.getActualMachineCode());
             }
         }, 0, 3000);
     }
 
-    public void validate(String userName, String machineCode){
+    public void post(String userName, String machineCode){
         this.validatorManager.validate(userName,machineCode);
     }
 
