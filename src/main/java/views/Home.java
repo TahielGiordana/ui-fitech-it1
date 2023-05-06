@@ -8,39 +8,35 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.io.File;
 
 public class Home extends JFrame implements Observer {
     // Constantes
     private static final int MIN_WIDTH = 600;
-    private static final int MIN_HEIGHT = 600;
+    private static final int MIN_HEIGHT = 500;
     private static final Color PRIMARY_COLOR = new Color(230, 230, 230);
     private static final Color SECONDARY_COLOR = new Color(50, 50, 50);
     private static final Color ACCENT_COLOR = new Color(200, 50, 50);
     private static final Font TITLE_FONT = new Font("Poppins", Font.BOLD, 48);
     private static final Font FORM_FONT = new Font("Poppins", Font.PLAIN, 24);
     private static final String TITLE = "Fitech";
-    private static final String VALID_MACHINE_MESSAGE = "Puede usar la maquina";
-    private static final String INVALID_MACHINE_MESSAGE = "No puede usar la maquina";
+    //private static final String VALID_MACHINE_MESSAGE = "Puede usar la maquina";
+    //private static final String INVALID_MACHINE_MESSAGE = "No puede usar la maquina";
 
     // Componentes de la interfaz gráfica
     private JPanel contentPanel;
     private JTextField userNameTextField;
     private JTextField machineSerialCodeTextField;
-    private JButton validatorBtn;
     private JLabel resultLabel;
 
     // Controlador
     private HomeController homeController;
     private Core core;
 
-
     public Home(Core core) {
         super(TITLE);
         this.core = core;
         core.addObserver(this);
         this.homeController = new HomeController(this);
-
 
         createUIComponents();
         setUpActions();
@@ -111,11 +107,10 @@ public class Home extends JFrame implements Observer {
         resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
         resultLabel.setVerticalAlignment(SwingConstants.CENTER);
 
-
         JPanel resultPanel = new JPanel();
+        GridLayout resultLayout = new GridLayout(3, 1);
         resultPanel.setBackground(null);
-        resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.PAGE_AXIS));
-        resultPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+        resultPanel.setLayout(resultLayout);
         resultPanel.add(resultLabel);
 
         contentPanel.add(titlePanel, BorderLayout.NORTH);
