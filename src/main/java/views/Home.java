@@ -39,7 +39,8 @@ public class Home extends JFrame implements Observer {
         super(TITLE);
         this.core = core;
         core.addObserver(this);
-        homeController = new HomeController(this);
+        this.homeController = new HomeController(this);
+
 
         createUIComponents();
         setUpActions();
@@ -47,6 +48,7 @@ public class Home extends JFrame implements Observer {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+        homeController.startValidationTask();
     }
 
     private void createUIComponents() {
@@ -116,22 +118,6 @@ public class Home extends JFrame implements Observer {
         resultPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         resultPanel.add(resultLabel);
 
-        validatorBtn = new JButton("Validar");
-        validatorBtn.setForeground(ACCENT_COLOR);
-        validatorBtn.setBackground(PRIMARY_COLOR);
-        validatorBtn.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(ACCENT_COLOR, 2),
-                BorderFactory.createEmptyBorder(5, 20, 5, 20)
-        ));
-        validatorBtn.setFont(FORM_FONT);
-        //resultPanel.add(validatorBtn);
-
-        JPanel buttonWrapper = new JPanel();
-        buttonWrapper.setBackground(null);
-        buttonWrapper.setLayout(new FlowLayout());
-        buttonWrapper.add(validatorBtn);
-        resultPanel.add(buttonWrapper);
-
         contentPanel.add(titlePanel, BorderLayout.NORTH);
         contentPanel.add(formPanel, BorderLayout.CENTER);
         contentPanel.add(resultPanel, BorderLayout.SOUTH);
@@ -172,20 +158,6 @@ public class Home extends JFrame implements Observer {
             public void changedUpdate(DocumentEvent e) {
                 homeController.validate(userNameTextField.getText(),machineSerialCodeTextField.getText());
             }
-        });
-
-        validatorBtn.addActionListener(e -> {
-            String userName = userNameTextField.getText();
-            String machineCode = machineSerialCodeTextField.getText();
-
-            homeController.validate(userName,machineCode);
-            /*
-            boolean machineAvailable = homeController.validate(userName,machineCode);
-            if (machineAvailable) {
-                resultLabel.setText(VALID_MACHINE_MESSAGE);
-            } else {
-                resultLabel.setText(INVALID_MACHINE_MESSAGE);
-            }*/
         });
     }
 

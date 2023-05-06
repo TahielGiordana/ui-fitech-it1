@@ -4,7 +4,8 @@ import init.Core;
 import interfaces.Observer;
 import views.Home;
 
-import java.io.File;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomeController implements Observer {
 
@@ -17,8 +18,18 @@ public class HomeController implements Observer {
         core.addObserver(this);
     }
 
+    public void startValidationTask(){
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                validate(core.getActualUserName(),core.getActualMachineCode());
+            }
+        }, 0, 3000);
+    }
+
     public void validate(String userName, String machineCode){
-        core.validate(userName,machineCode);
+        this.core.validate(userName,machineCode);
     }
 
     public void update(){
