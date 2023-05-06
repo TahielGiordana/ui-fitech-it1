@@ -31,14 +31,19 @@ public class Home {
         homeController = new HomeController(this, validatorManager);
         validatorManager.addObserver(homeController);
 
+        createUIComponents();
+
+
+        homeController.startValidationTask();
+    }
+
+    private void createUIComponents() {
         homeView = new HomeView(homeController);
         homeView.setTitle(TITLE);
         homeView.setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
         homeView.setResizable(false);
         homeView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeView.setVisible(true);
-
-        homeController.startValidationTask();
     }
 
     public HomeView getHomeView() {
