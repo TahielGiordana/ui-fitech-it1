@@ -4,6 +4,10 @@ import interfaces.Observer;
 import services.ValidationEngine;
 import views.Home;
 
+import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -31,10 +35,55 @@ public class HomeController implements Observer {
         this.validationEngine.validate(userName,machineCode);
     }
 
+    public void setUpActions() {
+        JTextField user = home.getUserNameTextField();
+        JTextField machine = home.getMachineSerialCodeTextField();
+        user.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                post(user.getText(),machine.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                post(user.getText(),machine.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                post(user.getText(),machine.getText());
+            }
+        });
+
+        machine.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                post(user.getText(),machine.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                post(user.getText(),machine.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                post(user.getText(),machine.getText());
+            }
+        });
+    }
+
     @Override
     public void update() {
-        boolean validationResult = validationEngine.getValidationResult();
-        home.updateResult(validationResult);
+        JLabel resultLabel = home.getResultLabel();
+        Boolean result = home.getCore().getValidatorManager().getValidationResult();
+        if(result){
+            resultLabel.setText(Boolean.toString(result));
+            resultLabel.setForeground(Color.GREEN);
+        }else{
+            resultLabel.setText(Boolean.toString(result));
+            resultLabel.setForeground(Color.RED);
+        }
     }
 
 }
