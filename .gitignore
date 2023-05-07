@@ -1,5 +1,7 @@
 .gradle/*
 .gradle
+logs
+/logs
 /.gradle/*
 /build
 out/*

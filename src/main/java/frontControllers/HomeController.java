@@ -1,6 +1,10 @@
 package frontControllers;
 
 import interfaces.Observer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import interfaces.Observer;
 import services.ValidationEngine;
 import views.Home;
 
@@ -13,10 +17,12 @@ import java.util.TimerTask;
 
 public class HomeController implements Observer {
 
+    private Logger log = LogManager.getLogger("HomeController");
     private final ValidationEngine validationEngine;
     private final Home home;
 
     public HomeController(Home home, ValidationEngine validationEngine){
+        log.info("se crea el componente {}", HomeController.class.getName());
         this.home = home;
         this.validationEngine = validationEngine;
     }
@@ -41,16 +47,19 @@ public class HomeController implements Observer {
         user.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
+                log.info("metodo insertUpdate: {} {}",user.getText(),machine.getText() );
                 post(user.getText(),machine.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
+                log.info("metodo removeUpdate: {} {}",user.getText(),machine.getText() );
                 post(user.getText(),machine.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
+                log.info("metodo changedUpdate: {} {}",user.getText(),machine.getText() );
                 post(user.getText(),machine.getText());
             }
         });
@@ -77,6 +86,7 @@ public class HomeController implements Observer {
     public void update() {
         JLabel resultLabel = home.getResultLabel();
         Boolean result = home.getCore().getValidatorManager().getValidationResult();
+        log.info("metodo update - result: {} ", result);
         if(result){
             resultLabel.setText(Boolean.toString(result));
             resultLabel.setForeground(Color.GREEN);
