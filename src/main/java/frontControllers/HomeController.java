@@ -4,7 +4,6 @@ import interfaces.Observer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import interfaces.Observer;
 import services.ValidationEngine;
 import views.Home;
 
