@@ -1,18 +1,14 @@
 package views;
 
-import core.Core;
-import frontControllers.HomeController;
-import interfaces.Observer;
-
+//java
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import java.awt.*;
 
-
+//custom imports
+import core.Core;
 import frontControllers.HomeController;
-import interfaces.Observer;
-import services.ValidatorManager;
+import services.ValidationEngine;
+
 
 public class Home {
     // Constantes
@@ -27,9 +23,9 @@ public class Home {
     private HomeController homeController;
 
     public Home(Core core) {
-        ValidatorManager validatorManager = core.getValidatorManager();
-        homeController = new HomeController(this, validatorManager);
-        validatorManager.addObserver(homeController);
+        ValidationEngine validationEngine = core.getValidatorManager();
+        homeController = new HomeController(this, validationEngine);
+        validationEngine.addObserver(homeController);
 
         createUIComponents();
 

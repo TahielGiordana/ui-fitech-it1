@@ -1,7 +1,7 @@
 package frontControllers;
 
 import interfaces.Observer;
-import services.ValidatorManager;
+import services.ValidationEngine;
 import views.Home;
 
 import java.util.Timer;
@@ -9,12 +9,12 @@ import java.util.TimerTask;
 
 public class HomeController implements Observer {
 
-    private ValidatorManager validatorManager;
-    private Home home;
+    private final ValidationEngine validationEngine;
+    private final Home home;
 
-    public HomeController(Home home, ValidatorManager validatorManager){
+    public HomeController(Home home, ValidationEngine validationEngine){
         this.home = home;
-        this.validatorManager = validatorManager;
+        this.validationEngine = validationEngine;
     }
 
     public void startValidationTask(){
@@ -22,18 +22,18 @@ public class HomeController implements Observer {
         t.schedule(new TimerTask() {
             @Override
             public void run() {
-                post(validatorManager.getActualUserName(), validatorManager.getActualMachineCode());
+                post(validationEngine.getActualUserName(), validationEngine.getActualMachineCode());
             }
         }, 0, 3000);
     }
 
     public void post(String userName, String machineCode){
-        this.validatorManager.validate(userName,machineCode);
+        this.validationEngine.validate(userName,machineCode);
     }
 
     @Override
     public void update() {
-        boolean validationResult = validatorManager.getValidationResult();
+        boolean validationResult = validationEngine.getValidationResult();
         home.updateResult(validationResult);
     }
 
