@@ -20,7 +20,7 @@ public class Home extends JFrame {
     private static final Font FORM_FONT = new Font("Poppins", Font.PLAIN, 24);
     private static final String TITLE = "Fitech";
 
-    // Componentes de la interfaz gr√°fica
+    // Componentes de la interfaz gr·fica
     private JPanel contentPanel;
     private JTextField userNameTextField;
     private JTextField machineSerialCodeTextField;
@@ -82,7 +82,7 @@ public class Home extends JFrame {
         nameWrapper.add(userNameTextField);
         formPanel.add(nameWrapper);
 
-        JLabel machineLabel = new JLabel("Codigo de maquina:");
+        JLabel machineLabel = new JLabel("CÛdigo de m·quina:");
         machineLabel.setForeground(PRIMARY_COLOR);
         machineLabel.setFont(FORM_FONT);
         machineLabel.setHorizontalAlignment(SwingConstants.LEFT);

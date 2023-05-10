@@ -87,10 +87,10 @@ public class HomeController implements Observer {
         Boolean result = home.getCore().getValidatorManager().getValidationResult();
         log.info("metodo update - result: {} ", result);
         if(result){
-            resultLabel.setText(Boolean.toString(result));
+            resultLabel.setText("Puede utilizar la máquina");
             resultLabel.setForeground(Color.GREEN);
         }else{
-            resultLabel.setText(Boolean.toString(result));
+            resultLabel.setText("No puede utilizar la máquina");
             resultLabel.setForeground(Color.RED);
         }
     }
