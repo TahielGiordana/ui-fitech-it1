@@ -5,9 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 
 //custom imports
-import core.Core;
+import core.ValidationService;
 import frontControllers.HomeController;
-import services.ValidationEngine;
 
 
 public class Home extends JFrame {
@@ -26,27 +25,19 @@ public class Home extends JFrame {
     private JTextField machineSerialCodeTextField;
     private JLabel resultLabel;
 
-    // Controlador
-    private HomeController homeController;
-    private Core core;
+    private JButton validatorBtn;
 
-    public Home(Core core) {
+    public Home(ValidationService validationService) {
         super(TITLE);
-        this.core = core;
-        ValidationEngine validationEngine = core.getValidatorManager();
-        homeController = new HomeController(this, validationEngine);
-        validationEngine.addObserver(homeController);
-
         createUIComponents();
-        homeController.setUpActions();
-        homeController.startValidationTask();
+        new HomeController(this, validationService);
+        setVisible(true);
     }
 
     private void createUIComponents() {
         setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
 
         contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
@@ -60,7 +51,7 @@ public class Home extends JFrame {
         titlePanel.add(title);
 
         JPanel formPanel = new JPanel();
-        GridLayout formLayout = new GridLayout(3, 1);
+        GridLayout formLayout = new GridLayout(4, 1);
         formPanel.setLayout(formLayout);
         formPanel.setBackground(null);
 
@@ -106,16 +97,32 @@ public class Home extends JFrame {
         resultLabel.setFont(FORM_FONT);
         resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
         resultLabel.setVerticalAlignment(SwingConstants.CENTER);
+        formPanel.add(resultLabel);
 
         JPanel resultPanel = new JPanel();
         GridLayout resultLayout = new GridLayout(3, 1);
         resultPanel.setBackground(null);
         resultPanel.setLayout(resultLayout);
-        resultPanel.add(resultLabel);
+        //resultPanel.add(resultLabel);
+
+        validatorBtn = new JButton("Ingresar");
+        validatorBtn.setForeground(ACCENT_COLOR);
+        validatorBtn.setBackground(PRIMARY_COLOR);
+        validatorBtn.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(ACCENT_COLOR, 2),
+                BorderFactory.createEmptyBorder(5, 20, 5, 20)
+        ));
+        validatorBtn.setFont(FORM_FONT);
+
+        JPanel buttonWrapper = new JPanel();
+        buttonWrapper.setBackground(null);
+        buttonWrapper.setLayout(new FlowLayout());
+        buttonWrapper.add(validatorBtn);
+        formPanel.add(buttonWrapper);
 
         contentPanel.add(titlePanel, BorderLayout.NORTH);
         contentPanel.add(formPanel, BorderLayout.CENTER);
-        contentPanel.add(resultPanel, BorderLayout.SOUTH);
+        //contentPanel.add(resultPanel, BorderLayout.SOUTH);
 
         setContentPane(contentPanel);
     }
@@ -132,8 +139,9 @@ public class Home extends JFrame {
         return this.machineSerialCodeTextField;
     }
 
-    public Core getCore(){
-        return this.core;
+    public JButton getValidatorBtn(){
+        return this.validatorBtn;
     }
+
 
 }

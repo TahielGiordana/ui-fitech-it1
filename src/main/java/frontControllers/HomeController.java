@@ -1,10 +1,10 @@
 package frontControllers;
 
+import core.ValidationService;
 import interfaces.Observer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import services.ValidationEngine;
 import views.Home;
 
 import javax.swing.*;
@@ -17,74 +17,92 @@ import java.util.TimerTask;
 public class HomeController implements Observer {
 
     private Logger log = LogManager.getLogger("HomeController");
-    private final ValidationEngine validationEngine;
+    private final ValidationService validationService;
     private final Home home;
 
-    public HomeController(Home home, ValidationEngine validationEngine){
-        log.info("se crea el componente {}", HomeController.class.getName());
+    private Timer validationTaskTimer;
+
+    public HomeController(Home home, ValidationService validationService){
         this.home = home;
-        this.validationEngine = validationEngine;
+        this.validationService = validationService;
+        validationService.subscribe(this);
+        this.validationTaskTimer = new Timer();
+        setUpActions();
     }
 
     public void startValidationTask(){
-        Timer t = new Timer();
-        t.schedule(new TimerTask() {
+        validationTaskTimer = new Timer();
+        String userName = home.getUserNameTextField().getText();
+        String machineCode = home.getMachineSerialCodeTextField().getText();
+        validationTaskTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                post(validationEngine.getActualUserName(), validationEngine.getActualMachineCode());
+                validationService.postValidationRequest(userName,machineCode);
             }
         }, 0, 3000);
-    }
-
-    public void post(String userName, String machineCode){
-        this.validationEngine.validate(userName,machineCode);
     }
 
     public void setUpActions() {
         JTextField user = home.getUserNameTextField();
         JTextField machine = home.getMachineSerialCodeTextField();
+        JButton validatorBtn = home.getValidatorBtn();
+        JLabel resultLabel = home.getResultLabel();
         user.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                log.info("metodo insertUpdate: {} {}",user.getText(),machine.getText() );
-                post(user.getText(),machine.getText());
+                resultLabel.setText("");
+                validationTaskTimer.cancel();
+                validatorBtn.setEnabled(true);
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                log.info("metodo removeUpdate: {} {}",user.getText(),machine.getText() );
-                post(user.getText(),machine.getText());
+                resultLabel.setText("");
+                validationTaskTimer.cancel();
+                validatorBtn.setEnabled(true);
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                log.info("metodo changedUpdate: {} {}",user.getText(),machine.getText() );
-                post(user.getText(),machine.getText());
+                resultLabel.setText("");
+                validationTaskTimer.cancel();
+                validatorBtn.setEnabled(true);
             }
         });
 
         machine.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                post(user.getText(),machine.getText());
+                resultLabel.setText("");
+                validationTaskTimer.cancel();
+                validatorBtn.setEnabled(true);
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                post(user.getText(),machine.getText());
+                resultLabel.setText("");
+                validationTaskTimer.cancel();
+                validatorBtn.setEnabled(true);
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                post(user.getText(),machine.getText());
+                resultLabel.setText("");
+                validationTaskTimer.cancel();
+                validatorBtn.setEnabled(true);
             }
+        });
+
+        validatorBtn.addActionListener(e->{
+            startValidationTask();
+            validatorBtn.setEnabled(false);
         });
     }
 
     @Override
     public void update() {
         JLabel resultLabel = home.getResultLabel();
-        Boolean result = home.getCore().getValidatorManager().getValidationResult();
+        Boolean result = validationService.getResult();
         log.info("metodo update - result: {} ", result);
         if(result){
             resultLabel.setText("Puede utilizar la máquina");
@@ -94,5 +112,4 @@ public class HomeController implements Observer {
             resultLabel.setForeground(Color.RED);
         }
     }
-
 }
