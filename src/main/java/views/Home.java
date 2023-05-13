@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 
 //custom imports
-import core.ValidationService;
+import core.CoreFitech;
 import frontControllers.HomeController;
 
 
@@ -19,7 +19,7 @@ public class Home extends JFrame {
     private static final Font FORM_FONT = new Font("Poppins", Font.PLAIN, 24);
     private static final String TITLE = "Fitech";
 
-    // Componentes de la interfaz gráfica
+    // Componentes de la interfaz grï¿½fica
     private JPanel contentPanel;
     private JTextField userNameTextField;
     private JTextField machineSerialCodeTextField;
@@ -27,10 +27,10 @@ public class Home extends JFrame {
 
     private JButton validatorBtn;
 
-    public Home(ValidationService validationService) {
+    public Home(CoreFitech coreFitech) {
         super(TITLE);
         createUIComponents();
-        new HomeController(this, validationService);
+        new HomeController(this, coreFitech);
         setVisible(true);
     }
 
@@ -73,7 +73,7 @@ public class Home extends JFrame {
         nameWrapper.add(userNameTextField);
         formPanel.add(nameWrapper);
 
-        JLabel machineLabel = new JLabel("Código de máquina:");
+        /*JLabel machineLabel = new JLabel("Cï¿½digo de mï¿½quina:");
         machineLabel.setForeground(PRIMARY_COLOR);
         machineLabel.setFont(FORM_FONT);
         machineLabel.setHorizontalAlignment(SwingConstants.LEFT);
@@ -90,7 +90,7 @@ public class Home extends JFrame {
         machineWrapper.setLayout(new FlowLayout());
         machineWrapper.add(machineLabel);
         machineWrapper.add(machineSerialCodeTextField);
-        formPanel.add(machineWrapper);
+        formPanel.add(machineWrapper);*/
 
         resultLabel = new JLabel("");
         resultLabel.setForeground(ACCENT_COLOR);

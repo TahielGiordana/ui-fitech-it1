@@ -1,6 +1,6 @@
 package frontControllers;
 
-import core.ValidationService;
+import core.CoreFitech;
 import interfaces.Observer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,16 +16,16 @@ import java.util.TimerTask;
 
 public class HomeController implements Observer {
 
-    private Logger log = LogManager.getLogger("HomeController");
-    private final ValidationService validationService;
+    private final Logger log = LogManager.getLogger("HomeController");
+    private final CoreFitech coreFitech;
     private final Home home;
 
     private Timer validationTaskTimer;
 
-    public HomeController(Home home, ValidationService validationService){
+    public HomeController(Home home, CoreFitech coreFitech){
         this.home = home;
-        this.validationService = validationService;
-        validationService.subscribe(this);
+        this.coreFitech = coreFitech;
+        coreFitech.subscribe(this);
         this.validationTaskTimer = new Timer();
         setUpActions();
     }
@@ -33,44 +33,19 @@ public class HomeController implements Observer {
     public void startValidationTask(){
         validationTaskTimer = new Timer();
         String userName = home.getUserNameTextField().getText();
-        String machineCode = home.getMachineSerialCodeTextField().getText();
         validationTaskTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                validationService.postValidationRequest(userName,machineCode);
+                coreFitech.postValidationRequest(userName);
             }
         }, 0, 3000);
     }
 
     public void setUpActions() {
         JTextField user = home.getUserNameTextField();
-        JTextField machine = home.getMachineSerialCodeTextField();
         JButton validatorBtn = home.getValidatorBtn();
         JLabel resultLabel = home.getResultLabel();
         user.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                resultLabel.setText("");
-                validationTaskTimer.cancel();
-                validatorBtn.setEnabled(true);
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                resultLabel.setText("");
-                validationTaskTimer.cancel();
-                validatorBtn.setEnabled(true);
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                resultLabel.setText("");
-                validationTaskTimer.cancel();
-                validatorBtn.setEnabled(true);
-            }
-        });
-
-        machine.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 resultLabel.setText("");
@@ -102,13 +77,13 @@ public class HomeController implements Observer {
     @Override
     public void update() {
         JLabel resultLabel = home.getResultLabel();
-        Boolean result = validationService.getResult();
+        Boolean result = coreFitech.getResult();
         log.info("metodo update - result: {} ", result);
         if(result){
-            resultLabel.setText("Puede utilizar la máquina");
+            resultLabel.setText("Puede utilizar la mï¿½quina");
             resultLabel.setForeground(Color.GREEN);
         }else{
-            resultLabel.setText("No puede utilizar la máquina");
+            resultLabel.setText("No puede utilizar la mï¿½quina");
             resultLabel.setForeground(Color.RED);
         }
     }

@@ -1,4 +1,4 @@
-import core.ValidationService;
+import core.CoreFitech;
 import views.Home;
 
 import java.io.File;
@@ -6,7 +6,7 @@ import java.io.File;
 public class Application {
 
     public static void main(String[] args) {
-       ValidationService validationService = new ValidationService(new File("").getAbsolutePath());
-       Home home = new Home(validationService);
+       CoreFitech coreFitech = new CoreFitech(new File("").getAbsolutePath());
+       Home home = new Home(coreFitech);
     }
 }
