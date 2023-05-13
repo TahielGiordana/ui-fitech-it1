@@ -22,7 +22,6 @@ public class Home extends JFrame {
     // Componentes de la interfaz gr�fica
     private JPanel contentPanel;
     private JTextField userNameTextField;
-    private JTextField machineSerialCodeTextField;
     private JLabel resultLabel;
 
     private JButton validatorBtn;
@@ -73,25 +72,6 @@ public class Home extends JFrame {
         nameWrapper.add(userNameTextField);
         formPanel.add(nameWrapper);
 
-        /*JLabel machineLabel = new JLabel("C�digo de m�quina:");
-        machineLabel.setForeground(PRIMARY_COLOR);
-        machineLabel.setFont(FORM_FONT);
-        machineLabel.setHorizontalAlignment(SwingConstants.LEFT);
-
-        machineSerialCodeTextField = new JTextField();
-        machineSerialCodeTextField.setForeground(SECONDARY_COLOR);
-        machineSerialCodeTextField.setBackground(PRIMARY_COLOR);
-        machineSerialCodeTextField.setFont(FORM_FONT);
-        machineSerialCodeTextField.setColumns(20);
-        machineSerialCodeTextField.setMargin(new Insets(2, 5, 2, 5));
-
-        JPanel machineWrapper = new JPanel();
-        machineWrapper.setBackground(null);
-        machineWrapper.setLayout(new FlowLayout());
-        machineWrapper.add(machineLabel);
-        machineWrapper.add(machineSerialCodeTextField);
-        formPanel.add(machineWrapper);*/
-
         resultLabel = new JLabel("");
         resultLabel.setForeground(ACCENT_COLOR);
         resultLabel.setFont(FORM_FONT);
@@ -103,7 +83,6 @@ public class Home extends JFrame {
         GridLayout resultLayout = new GridLayout(3, 1);
         resultPanel.setBackground(null);
         resultPanel.setLayout(resultLayout);
-        //resultPanel.add(resultLabel);
 
         validatorBtn = new JButton("Ingresar");
         validatorBtn.setForeground(ACCENT_COLOR);
@@ -122,7 +101,6 @@ public class Home extends JFrame {
 
         contentPanel.add(titlePanel, BorderLayout.NORTH);
         contentPanel.add(formPanel, BorderLayout.CENTER);
-        //contentPanel.add(resultPanel, BorderLayout.SOUTH);
 
         setContentPane(contentPanel);
     }
@@ -135,13 +113,7 @@ public class Home extends JFrame {
         return this.userNameTextField;
     }
 
-    public JTextField getMachineSerialCodeTextField(){
-        return this.machineSerialCodeTextField;
-    }
-
     public JButton getValidatorBtn(){
         return this.validatorBtn;
     }
-
-
 }
