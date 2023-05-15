@@ -27,7 +27,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation 'com.intellij:forms_rt:7.0.3'
-    implementation 'com.github.FerJoanEne:core-fitech:0591a6f4e7fbacf22e35e5d603a23b5481d456d5'
+    implementation 'com.github.FerJoanEne:core-fitech:3b960447d8e1a9017cbdd3075467d61125252637'
     implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
     implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
 }
