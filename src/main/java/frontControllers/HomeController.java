@@ -11,8 +11,6 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class HomeController implements Observer {
 
@@ -20,25 +18,11 @@ public class HomeController implements Observer {
     private final CoreFitech coreFitech;
     private final Home home;
 
-    private Timer validationTaskTimer;
-
     public HomeController(Home home, CoreFitech coreFitech){
         this.home = home;
         this.coreFitech = coreFitech;
         coreFitech.addObserver(this);
-        this.validationTaskTimer = new Timer();
         setUpActions();
-    }
-
-    public void startValidationTask(){
-        validationTaskTimer = new Timer();
-        String userName = home.getUserNameTextField().getText();
-        validationTaskTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                coreFitech.postValidationRequest(userName);
-            }
-        }, 0, 3000);
     }
 
     public void setUpActions() {
@@ -49,27 +33,24 @@ public class HomeController implements Observer {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 resultLabel.setText("");
-                validationTaskTimer.cancel();
                 validatorBtn.setEnabled(true);
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
                 resultLabel.setText("");
-                validationTaskTimer.cancel();
                 validatorBtn.setEnabled(true);
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 resultLabel.setText("");
-                validationTaskTimer.cancel();
                 validatorBtn.setEnabled(true);
             }
         });
 
         validatorBtn.addActionListener(e->{
-            startValidationTask();
+            coreFitech.processRequest(user.getText());
             validatorBtn.setEnabled(false);
         });
     }
