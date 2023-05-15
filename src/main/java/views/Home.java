@@ -2,34 +2,38 @@ package views;
 
 //java
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 //custom imports
 import core.CoreFitech;
 import frontControllers.HomeController;
+import services.ScoreService;
 
 
 public class Home extends JFrame {
-    private static final int MIN_WIDTH = 600;
-    private static final int MIN_HEIGHT = 500;
+    private static final int MIN_WIDTH = 1200;
+    private static final int MIN_HEIGHT = 600;
     private static final Color PRIMARY_COLOR = new Color(230, 230, 230);
     private static final Color SECONDARY_COLOR = new Color(50, 50, 50);
     private static final Color ACCENT_COLOR = new Color(200, 50, 50);
     private static final Font TITLE_FONT = new Font("Poppins", Font.BOLD, 48);
     private static final Font FORM_FONT = new Font("Poppins", Font.PLAIN, 24);
+    private static final Font SCORE_FONT = new Font("Poppins", Font.PLAIN, 24);
     private static final String TITLE = "Fitech";
 
     // Componentes de la interfaz gr?fica
     private JPanel contentPanel;
     private JTextField userNameTextField;
-    private JLabel resultLabel;
+    private JTextArea resultLabel;
 
     private JButton validatorBtn;
+    private DefaultTableModel scoreModel;
 
-    public Home(CoreFitech coreFitech) {
+    public Home(CoreFitech coreFitech, ScoreService scoreFitech) {
         super(TITLE);
         createUIComponents();
-        new HomeController(this, coreFitech);
+        new HomeController(this, coreFitech, scoreFitech);
         setVisible(true);
     }
 
@@ -49,10 +53,43 @@ public class Home extends JFrame {
         title.setFont(TITLE_FONT);
         titlePanel.add(title);
 
+        JPanel bodyPanel = new JPanel();
+        GridLayout bodyLayout = new GridLayout(1,3);
+        bodyLayout.setHgap(10);
+        bodyPanel.setLayout(bodyLayout);
+        bodyPanel.setBackground(null);
+
+        //TODO Panel de Puntuaciones
+
+        JScrollPane scorePanel = new JScrollPane();
+
+        scoreModel = new DefaultTableModel(null, new String[] {"User", "Score"}){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        JTable scoreTable = new JTable(scoreModel);
+        scoreTable.setFont(SCORE_FONT);
+        scoreTable.setRowHeight(SCORE_FONT.getSize() + 4);
+        scoreTable.getTableHeader().setFont(SCORE_FONT);
+
+        scorePanel.setViewportView(scoreTable);
+
+        bodyPanel.add(scorePanel);
+
+        //TODO Panel Formulario
+
         JPanel formPanel = new JPanel();
-        GridLayout formLayout = new GridLayout(4, 1);
+        GridLayout formLayout = new GridLayout(2, 1);
+        formLayout.setVgap(10);
         formPanel.setLayout(formLayout);
         formPanel.setBackground(null);
+
+        JPanel inputPanel = new JPanel();
+        GridLayout inputLayout = new GridLayout(2,1);
+        inputPanel.setLayout(inputLayout);
+        inputPanel.setBackground(Color.ORANGE);
 
         JLabel nameLabel = new JLabel("Nombre de usuario:");
         nameLabel.setForeground(PRIMARY_COLOR);
@@ -62,7 +99,7 @@ public class Home extends JFrame {
         userNameTextField.setForeground(SECONDARY_COLOR);
         userNameTextField.setBackground(PRIMARY_COLOR);
         userNameTextField.setFont(FORM_FONT);
-        userNameTextField.setColumns(20);
+        userNameTextField.setColumns(14);
         userNameTextField.setMargin(new Insets(2, 5, 2, 5));
 
         JPanel nameWrapper = new JPanel();
@@ -70,19 +107,7 @@ public class Home extends JFrame {
         nameWrapper.setLayout(new FlowLayout());
         nameWrapper.add(nameLabel);
         nameWrapper.add(userNameTextField);
-        formPanel.add(nameWrapper);
-
-        resultLabel = new JLabel("");
-        resultLabel.setForeground(ACCENT_COLOR);
-        resultLabel.setFont(FORM_FONT);
-        resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        resultLabel.setVerticalAlignment(SwingConstants.CENTER);
-        formPanel.add(resultLabel);
-
-        JPanel resultPanel = new JPanel();
-        GridLayout resultLayout = new GridLayout(3, 1);
-        resultPanel.setBackground(null);
-        resultPanel.setLayout(resultLayout);
+        inputPanel.add(nameWrapper);
 
         validatorBtn = new JButton("Ingresar");
         validatorBtn.setForeground(ACCENT_COLOR);
@@ -97,15 +122,48 @@ public class Home extends JFrame {
         buttonWrapper.setBackground(null);
         buttonWrapper.setLayout(new FlowLayout());
         buttonWrapper.add(validatorBtn);
-        formPanel.add(buttonWrapper);
+        inputPanel.add(buttonWrapper);
+
+        formPanel.add(inputPanel);
+
+        JPanel resultPanel = new JPanel();
+        GridLayout resultLayout = new GridLayout(1, 1);
+        resultPanel.setBackground(Color.YELLOW);
+        resultPanel.setLayout(resultLayout);
+
+        resultLabel = new JTextArea();
+        resultLabel.setBackground(SECONDARY_COLOR);
+        resultLabel.setForeground(ACCENT_COLOR);
+        resultLabel.setFont(SCORE_FONT);
+        resultLabel.setBorder(null);
+        resultLabel.setColumns(15);
+        resultLabel.setEditable(false);
+
+        JScrollPane scrollResultPanel = new JScrollPane(resultLabel);
+        scrollResultPanel.setBorder(null);
+        resultPanel.setBackground(null);
+        resultPanel.setLayout(resultLayout);
+        resultPanel.add(scrollResultPanel);
+
+        formPanel.add(resultPanel);
+
+        bodyPanel.add(formPanel);
+
+        //TODO Validators Panel
+        JPanel checkValidatorsPanel = new JPanel();
+        GridLayout checkValidatorsLayout = new GridLayout(1,1);
+        checkValidatorsPanel.setLayout(checkValidatorsLayout);
+        checkValidatorsPanel.setBackground(Color.PINK);
+
+        bodyPanel.add(checkValidatorsPanel);
 
         contentPanel.add(titlePanel, BorderLayout.NORTH);
-        contentPanel.add(formPanel, BorderLayout.CENTER);
+        contentPanel.add(bodyPanel, BorderLayout.CENTER);
 
         setContentPane(contentPanel);
     }
 
-    public JLabel getResultLabel(){
+    public JTextArea getResultLabel(){
         return this.resultLabel;
     }
 
@@ -115,5 +173,9 @@ public class Home extends JFrame {
 
     public JButton getValidatorBtn(){
         return this.validatorBtn;
+    }
+
+    public DefaultTableModel getScoreTableModel(){
+        return this.scoreModel;
     }
 }
