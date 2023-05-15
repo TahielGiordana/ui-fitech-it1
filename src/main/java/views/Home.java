@@ -24,6 +24,8 @@ public class Home extends JFrame {
 
     // Componentes de la interfaz gr?fica
     private JPanel contentPanel;
+
+    private JPanel checkValidatorsPanel;
     private JTextField userNameTextField;
     private JTextArea resultLabel;
 
@@ -150,12 +152,16 @@ public class Home extends JFrame {
         bodyPanel.add(formPanel);
 
         //TODO Validators Panel
-        JPanel checkValidatorsPanel = new JPanel();
-        GridLayout checkValidatorsLayout = new GridLayout(1,1);
+        JScrollPane checkValidatorsScrollPanel = new JScrollPane();
+        checkValidatorsScrollPanel.setBackground(null);
+        checkValidatorsPanel = new JPanel();
+        BoxLayout checkValidatorsLayout = new BoxLayout(checkValidatorsPanel,BoxLayout.Y_AXIS);
+
         checkValidatorsPanel.setLayout(checkValidatorsLayout);
         checkValidatorsPanel.setBackground(Color.PINK);
 
-        bodyPanel.add(checkValidatorsPanel);
+        checkValidatorsScrollPanel.setViewportView(checkValidatorsPanel);
+        bodyPanel.add(checkValidatorsScrollPanel);
 
         contentPanel.add(titlePanel, BorderLayout.NORTH);
         contentPanel.add(bodyPanel, BorderLayout.CENTER);
@@ -177,5 +183,9 @@ public class Home extends JFrame {
 
     public DefaultTableModel getScoreTableModel(){
         return this.scoreModel;
+    }
+
+    public JPanel getValidatorsPanel(){
+        return this.checkValidatorsPanel;
     }
 }
