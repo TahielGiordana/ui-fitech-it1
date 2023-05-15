@@ -59,12 +59,13 @@ public class HomeController implements Observer {
     public void update() {
         JLabel resultLabel = home.getResultLabel();
         Boolean result = coreFitech.getResult();
+        System.out.println("\u001B[33mHome Controller Update\u001B[0m");
         log.info("metodo update - result: {} ", result);
         if(result){
-            resultLabel.setText("Puede utilizar la mï¿½quina");
+            resultLabel.setText("Puede utilizar la máquina");
             resultLabel.setForeground(Color.GREEN);
         }else{
-            resultLabel.setText("No puede utilizar la mï¿½quina");
+            resultLabel.setText("No puede utilizar la máquina");
             resultLabel.setForeground(Color.RED);
         }
     }

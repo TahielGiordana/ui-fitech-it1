@@ -19,7 +19,7 @@ public class Home extends JFrame {
     private static final Font FORM_FONT = new Font("Poppins", Font.PLAIN, 24);
     private static final String TITLE = "Fitech";
 
-    // Componentes de la interfaz gr�fica
+    // Componentes de la interfaz gr?fica
     private JPanel contentPanel;
     private JTextField userNameTextField;
     private JLabel resultLabel;
