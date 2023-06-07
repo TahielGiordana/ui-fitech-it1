@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import services.ScoreService;
+import services.ValidationTask;
 import views.Home;
 
 import javax.swing.*;
@@ -25,58 +26,65 @@ import java.util.Set;
 public class HomeController implements Observer {
 
     private final Logger log = LogManager.getLogger("HomeController");
-    private final CoreFitech coreFitech;
-    private final ScoreService scoreFitech;
+    private final ValidationTask validationTask;
+    //private final ScoreService scoreFitech;
     private final Home home;
 
-    private Set<JCheckBox> checkBoxes;
+    private  boolean isButtonEnabled;
+
+    //private Set<JCheckBox> checkBoxes;
 
 
-    public HomeController(Home home, CoreFitech coreFitech, ScoreService scoreFitech){
+    public HomeController(Home home, CoreFitech coreFitech){
         this.home = home;
-        this.coreFitech = coreFitech;
-        this.scoreFitech = scoreFitech;
-        this.checkBoxes = new HashSet<>();
-        coreFitech.addObserver(this);
+        this.validationTask = coreFitech.getValidationTask();
+        this.validationTask.addObserver(this);
+        //this.scoreFitech = scoreFitech;
+        //this.checkBoxes = new HashSet<>();
+        //coreFitech.addObserver(this);
         setUpActions();
-        updateValidatorList();
-        updateScoreTable();
+        this.isButtonEnabled = true;
+        //updateValidatorList();
+        //updateScoreTable();
     }
 
     public void setUpActions() {
         JTextField user = home.getUserNameTextField();
         JButton validatorBtn = home.getValidatorBtn();
         JTextArea resultLabel = home.getResultLabel();
-        user.getDocument().addDocumentListener(new DocumentListener() {
+        DocumentListener documentListener = new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                resultLabel.setText("");
-                validatorBtn.setEnabled(true);
-                enableAllCheckBoxes(true);
+                enableButton();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                resultLabel.setText("");
-                validatorBtn.setEnabled(true);
-                enableAllCheckBoxes(true);
+                enableButton();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
+                enableButton();
+            }
+
+            private void enableButton() {
+                isButtonEnabled = true;
                 resultLabel.setText("");
                 validatorBtn.setEnabled(true);
-                enableAllCheckBoxes(true);
             }
-        });
+        };
 
-        validatorBtn.addActionListener(e->{
-            coreFitech.processRequest(user.getText());
+        user.getDocument().addDocumentListener(documentListener);
+
+        validatorBtn.addActionListener(e -> {
+            isButtonEnabled = false;
+            validationTask.processRequest(user.getText());
             validatorBtn.setEnabled(false);
-            enableAllCheckBoxes(false);
         });
     }
 
+    /*
     public void updateScoreTable(){
         //Lleno tabla score
         DefaultTableModel scoreTableModel = home.getScoreTableModel();
@@ -92,7 +100,9 @@ public class HomeController implements Observer {
             scoreTableModel.addRow(row);
         }
     }
+    */
 
+    /*
     private void updateValidatorList(){
         JPanel validatorsPanel = home.getValidatorsPanel();
         Set<Validator> validators = coreFitech.getValidators();
@@ -100,8 +110,8 @@ public class HomeController implements Observer {
             String checkText = v.getClass().getName();
             JCheckBox check = new JCheckBox(checkText);
             check.setBackground(null);
-            check.setForeground(Color.WHITE);
-            check.setFont(new Font("Poppins", Font.PLAIN, 20));
+            check.setForeground(Color.BLACK);
+            check.setFont(new Font("Poppins", Font.PLAIN, 28));
             check.addItemListener(new ItemListener() {
                 @Override
                 public void itemStateChanged(ItemEvent e) {
@@ -116,16 +126,17 @@ public class HomeController implements Observer {
             validatorsPanel.add(check);
             checkBoxes.add(check);
         }
-    }
+    }*/
 
-    private void enableAllCheckBoxes(boolean bool){
+    /*private void enableAllCheckBoxes(boolean bool){
         for(JCheckBox checkBox : checkBoxes){
             checkBox.setEnabled(bool);
         }
-    }
+    }*/
 
     @Override
     public void update() {
+        /*
         JTextArea resultLabel = home.getResultLabel();
         Map<String,Boolean> validatorsResult = coreFitech.getResult();
         String labelText = "No puede usar la máquina";
@@ -147,5 +158,19 @@ public class HomeController implements Observer {
             resultLabel.setForeground(Color.RED);
         }
         updateScoreTable();
+         */
+    }
+
+    @Override
+    public void update(Boolean result) {
+        JTextArea resultLabel = home.getResultLabel();
+        if (!isButtonEnabled) {
+            System.out.println("\u001B[33mHome Controller Update\u001B[0m");
+            log.info("metodo update - result: {} ", result);
+            if (result != null) {
+                resultLabel.setText(result ? "Puede utilizar la m?quina" : "No puede utilizar la m?quina");
+                resultLabel.setForeground(result ? Color.GREEN : Color.RED);
+            }
+        }
     }
 }

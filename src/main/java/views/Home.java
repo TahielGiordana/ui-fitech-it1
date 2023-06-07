@@ -32,10 +32,10 @@ public class Home extends JFrame {
     private JButton validatorBtn;
     private DefaultTableModel scoreModel;
 
-    public Home(CoreFitech coreFitech, ScoreService scoreFitech) {
+    public Home(CoreFitech coreFitech) {
         super(TITLE);
         createUIComponents();
-        new HomeController(this, coreFitech, scoreFitech);
+        new HomeController(this, coreFitech);
         setVisible(true);
     }
 
@@ -91,7 +91,7 @@ public class Home extends JFrame {
         JPanel inputPanel = new JPanel();
         GridLayout inputLayout = new GridLayout(2,1);
         inputPanel.setLayout(inputLayout);
-        inputPanel.setBackground(Color.ORANGE);
+        inputPanel.setBackground(null);
 
         JLabel nameLabel = new JLabel("Nombre de usuario:");
         nameLabel.setForeground(PRIMARY_COLOR);
@@ -130,7 +130,7 @@ public class Home extends JFrame {
 
         JPanel resultPanel = new JPanel();
         GridLayout resultLayout = new GridLayout(1, 1);
-        resultPanel.setBackground(Color.YELLOW);
+        resultPanel.setBackground(null);
         resultPanel.setLayout(resultLayout);
 
         resultLabel = new JTextArea();
@@ -158,7 +158,7 @@ public class Home extends JFrame {
         BoxLayout checkValidatorsLayout = new BoxLayout(checkValidatorsPanel,BoxLayout.Y_AXIS);
 
         checkValidatorsPanel.setLayout(checkValidatorsLayout);
-        checkValidatorsPanel.setBackground(Color.PINK);
+        checkValidatorsPanel.setBackground(null);
 
         checkValidatorsScrollPanel.setViewportView(checkValidatorsPanel);
         bodyPanel.add(checkValidatorsScrollPanel);
