@@ -28,7 +28,6 @@ public class HomeController implements Observer {
 
     private final Logger log = LogManager.getLogger("HomeController");
     private final ValidationTask validationTask;
-    //private final ScoreService scoreFitech;
     private final ScoreTask scoreTask;
     private final Home home;
 
@@ -43,7 +42,6 @@ public class HomeController implements Observer {
         this.validationTask.addObserver(this);
         this.scoreTask = coreFitech.getScoreTask();
         this.checkBoxes = new HashSet<>();
-        //coreFitech.addObserver(this);
         setUpActions();
         this.isButtonEnabled = true;
         updateValidatorList();
@@ -170,6 +168,10 @@ public class HomeController implements Observer {
             if (result != null) {
                 resultLabel.setText(result ? "Puede utilizar la m?quina" : "No puede utilizar la m?quina");
                 resultLabel.setForeground(result ? Color.GREEN : Color.RED);
+                if (result){
+                    scoreTask.addScore(home.getUserNameTextField().getText(), 10);
+                    updateScoreTable();
+                }
             }
         }
     }
