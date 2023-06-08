@@ -11,13 +11,14 @@ public class Application {
     private static final Logger log = LogManager.getLogger("Application");
 
     public static void main(String[] args) throws FileNotFoundException {
-        if (args.length < 2) {
-            log.info("Debe proporcionar el path al directorio y el código de la máquina");
+        if (args.length < 3) {
+            log.info("Debe proporcionar el path al directorio de validators, el código de la máquina y el path al archivo de puntajes");
             System.exit(0);
         }
-        String path = args[0];
+        String validatorPath = args[0];
         String machineCode = args[1];
-        CoreFitech coreFitech = new CoreFitech(path, machineCode);
+        String scorePath = args[2];
+        CoreFitech coreFitech = new CoreFitech(validatorPath, machineCode, scorePath);
         Home home = new Home(coreFitech);
     }
 }

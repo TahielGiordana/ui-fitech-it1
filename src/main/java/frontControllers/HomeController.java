@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import services.ScoreService;
 import services.ValidationTask;
+import services.score.ScoreTask;
 import views.Home;
 
 import javax.swing.*;
@@ -28,24 +29,25 @@ public class HomeController implements Observer {
     private final Logger log = LogManager.getLogger("HomeController");
     private final ValidationTask validationTask;
     //private final ScoreService scoreFitech;
+    private final ScoreTask scoreTask;
     private final Home home;
 
     private  boolean isButtonEnabled;
 
-    //private Set<JCheckBox> checkBoxes;
+    private Set<JCheckBox> checkBoxes;
 
 
     public HomeController(Home home, CoreFitech coreFitech){
         this.home = home;
         this.validationTask = coreFitech.getValidationTask();
         this.validationTask.addObserver(this);
-        //this.scoreFitech = scoreFitech;
-        //this.checkBoxes = new HashSet<>();
+        this.scoreTask = coreFitech.getScoreTask();
+        this.checkBoxes = new HashSet<>();
         //coreFitech.addObserver(this);
         setUpActions();
         this.isButtonEnabled = true;
-        //updateValidatorList();
-        //updateScoreTable();
+        updateValidatorList();
+        updateScoreTable();
     }
 
     public void setUpActions() {
@@ -84,11 +86,10 @@ public class HomeController implements Observer {
         });
     }
 
-    /*
     public void updateScoreTable(){
         //Lleno tabla score
         DefaultTableModel scoreTableModel = home.getScoreTableModel();
-        Map<String,Integer> scores = scoreFitech.getAllScores();
+        Map<String,Integer> scores = scoreTask.getAllScores();
 
         scoreTableModel.setRowCount(0);
         scoreTableModel.setColumnCount(0);
@@ -100,12 +101,11 @@ public class HomeController implements Observer {
             scoreTableModel.addRow(row);
         }
     }
-    */
 
-    /*
+
     private void updateValidatorList(){
         JPanel validatorsPanel = home.getValidatorsPanel();
-        Set<Validator> validators = coreFitech.getValidators();
+        Set<Validator> validators = validationTask.getValidators();
         for(Validator v : validators){
             String checkText = v.getClass().getName();
             JCheckBox check = new JCheckBox(checkText);
@@ -116,9 +116,9 @@ public class HomeController implements Observer {
                 @Override
                 public void itemStateChanged(ItemEvent e) {
                     if(e.getStateChange() == ItemEvent.SELECTED){
-                        coreFitech.checkValidator(checkText, true);
+                        //validationTask.checkValidator(checkText, true);
                     }else{
-                        coreFitech.checkValidator(checkText,false);
+                        //validationTask.checkValidator(checkText,false);
                     }
                 }
             });
@@ -126,7 +126,7 @@ public class HomeController implements Observer {
             validatorsPanel.add(check);
             checkBoxes.add(check);
         }
-    }*/
+    }
 
     /*private void enableAllCheckBoxes(boolean bool){
         for(JCheckBox checkBox : checkBoxes){
