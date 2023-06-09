@@ -5,11 +5,11 @@
   },
   {
     "username" : "Joan",
-    "payment" : false
+    "payment" : true
   },
   {
     "username" : "Evelyn",
-    "payment" : true
+    "payment" : false
   },
   {
   "username" : "Agustin",
@@ -17,6 +17,6 @@
   },
   {
     "username" : "Tony",
-    "payment" : true
+    "payment" : false
   }
 ]

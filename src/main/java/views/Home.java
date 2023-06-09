@@ -8,7 +8,6 @@ import java.awt.*;
 //custom imports
 import core.CoreFitech;
 import frontControllers.HomeController;
-import services.ScoreService;
 
 
 public class Home extends JFrame {

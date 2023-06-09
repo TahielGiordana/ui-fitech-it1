@@ -6,7 +6,6 @@ import interfaces.Validator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import services.ScoreService;
 import services.ValidationTask;
 import services.score.ScoreTask;
 import views.Home;

@@ -5,11 +5,11 @@
   },
   {
     "username" : "Joan",
-    "routine" : ["BicicletaFija", "Trotar", "Sentadillas"]
+    "routine" : [ "Trotar", "Sentadillas"]
   },
   {
     "username" : "Evelyn",
-    "routine" : ["Dominadas", "Abdominales", "Correr"]
+    "routine" : ["BicicletaFija", "Abdominales", "Correr"]
   },
   {
   "username" : "Agustin",

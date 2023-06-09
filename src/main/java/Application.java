@@ -1,7 +1,6 @@
 import core.CoreFitech;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import services.ScoreService;
 import views.Home;
 
 import java.io.File;
