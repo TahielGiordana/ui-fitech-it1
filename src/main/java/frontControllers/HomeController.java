@@ -69,6 +69,7 @@ public class HomeController implements Observer {
             }
 
             private void enableButton() {
+                validationTask.stopValidationTask();
                 isButtonEnabled = true;
                 resultLabel.setText("");
                 validatorBtn.setEnabled(true);
@@ -104,6 +105,8 @@ public class HomeController implements Observer {
     private void updateValidatorList(){
         JPanel validatorsPanel = home.getValidatorsPanel();
         Set<Validator> validators = validationTask.getValidators();
+        JButton validatorBtn = home.getValidatorBtn();
+        JTextArea resultLabel = home.getResultLabel();
         for(Validator v : validators){
             String checkText = v.getClass().getName();
             JCheckBox check = new JCheckBox(checkText);
@@ -113,6 +116,10 @@ public class HomeController implements Observer {
             check.addItemListener(new ItemListener() {
                 @Override
                 public void itemStateChanged(ItemEvent e) {
+                    validationTask.stopValidationTask();
+                    isButtonEnabled = true;
+                    resultLabel.setText("");
+                    validatorBtn.setEnabled(true);
                     if(e.getStateChange() == ItemEvent.SELECTED){
                         //validationTask.checkValidator(checkText, true);
                     }else{
