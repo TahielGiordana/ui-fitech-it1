@@ -141,9 +141,8 @@ public class HomeController implements Observer {
 
     @Override
     public void update() {
-        /*
         JTextArea resultLabel = home.getResultLabel();
-        Map<String,Boolean> validatorsResult = coreFitech.getResult();
+        Map<String,Boolean> validatorsResult = validationTask.getResult();
         String labelText = "No puede usar la máquina";
         Boolean finalResult = true;
         for(Map.Entry<String,Boolean> entry : validatorsResult.entrySet()){
@@ -158,12 +157,11 @@ public class HomeController implements Observer {
         if(finalResult){
             resultLabel.setText("Puede utilizar la máquina");
             resultLabel.setForeground(Color.GREEN);
-            scoreFitech.addScore(home.getUserNameTextField().getText(),50);
+            scoreTask.addScore(home.getUserNameTextField().getText(),10);
         }else{
             resultLabel.setForeground(Color.RED);
         }
         updateScoreTable();
-         */
     }
 
     @Override
@@ -173,7 +171,7 @@ public class HomeController implements Observer {
             System.out.println("\u001B[33mHome Controller Update\u001B[0m");
             log.info("metodo update - result: {} ", result);
             if (result != null) {
-                resultLabel.setText(result ? "Puede utilizar la m?quina" : "No puede utilizar la m?quina");
+                resultLabel.setText(result ? "Puede utilizar la máquina" : "No puede utilizar la máquina");
                 resultLabel.setForeground(result ? Color.GREEN : Color.RED);
                 if (result){
                     scoreTask.addScore(home.getUserNameTextField().getText(), 10);
