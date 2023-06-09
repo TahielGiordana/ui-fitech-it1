@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.374s</div>
+<div class="counter">1.006s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">CA1_NoneValidator()</td>
-<td class="success">0.039s</td>
+<td class="success">0.154s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">CA2_RoutineValidator()</td>
-<td class="success">0.042s</td>
+<td class="success">0.434s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">CA3_PaymentValidator()</td>
-<td class="success">0.230s</td>
+<td class="success">0.123s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">CA4_BothValidators()</td>
-<td class="success">0.063s</td>
+<td class="success">0.295s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,120 +102,120 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>20:14:05.587 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:14:05.603 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:14:05.611 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:14:05.614 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:14:05.624 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:14:05.627 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:14:05.627 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:14:05.628 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:14:05.631 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:14:05.632 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-20:14:05.641 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-20:14:05.642 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:14:05.643 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:14:05.644 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:14:05.646 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:14:05.646 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:14:05.647 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
+<pre>20:26:44.176 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+20:26:44.177 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+20:26:44.179 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+20:26:44.180 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+20:26:44.195 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+20:26:44.198 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+20:26:44.200 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+20:26:44.202 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+20:26:44.206 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+20:26:44.207 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+20:26:44.226 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+20:26:44.232 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+20:26:44.233 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+20:26:44.234 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+20:26:44.236 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+20:26:44.252 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+20:26:44.268 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
 Payment agregÃ³ el Observer: services.ValidationTask
 Routine agregÃ³ el Observer: services.ValidationTask
-20:14:05.654 [Test worker] WARN  UserStory3 - Se ejecuta test de CA3
+20:26:44.275 [Test worker] WARN  UserStory3 - Se ejecuta test de CA3
 Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
 Routine notifica a services.ValidationTask
-20:14:05.690 [Test worker] INFO  ValidationTask - Falló el validador: PaymentValidator
+20:26:44.283 [Test worker] INFO  ValidationTask - Falló el validador: PaymentValidator
 ?[31mEl resultado de Core era {}y ahora es {PaymentValidator=false}?[0m
 ?[31mAsi que notifico a la UI?[0m
 El resultado de Payment es: false
 Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-20:14:05.757 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:14:05.757 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:14:05.758 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:14:05.759 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:14:05.765 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:14:05.766 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:14:05.767 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:14:05.767 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:14:05.769 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:14:05.770 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-20:14:05.779 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-20:14:05.780 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:14:05.782 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:14:05.783 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:14:05.785 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:14:05.786 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:14:05.787 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
+20:26:44.300 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+20:26:44.301 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+20:26:44.303 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+20:26:44.304 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+20:26:44.330 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+20:26:44.333 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+20:26:44.335 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+20:26:44.338 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+20:26:44.343 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+20:26:44.346 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+20:26:44.361 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+20:26:44.363 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+20:26:44.416 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+20:26:44.418 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+20:26:44.420 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+20:26:44.420 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+20:26:44.421 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
 Payment agregÃ³ el Observer: services.ValidationTask
 Routine agregÃ³ el Observer: services.ValidationTask
-20:14:05.791 [Test worker] WARN  UserStory3 - Se ejecuta test de CA1
+20:26:44.448 [Test worker] WARN  UserStory3 - Se ejecuta test de CA1
 ?[31mEl resultado de Core era {}y ahora es {}?[0m
 ?[31mAsi que notifico a la UI?[0m
-20:14:05.800 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:14:05.802 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:14:05.803 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:14:05.804 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:14:05.811 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:14:05.813 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:14:05.814 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:14:05.815 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:14:05.818 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:14:05.820 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-20:14:05.827 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-20:14:05.830 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:14:05.831 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:14:05.831 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:14:05.833 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:14:05.834 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:14:05.834 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
-Routine agregÃ³ el Observer: services.ValidationTask
+20:26:44.460 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+20:26:44.462 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+20:26:44.464 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+20:26:44.465 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+20:26:44.475 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+20:26:44.476 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+20:26:44.478 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+20:26:44.478 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+20:26:44.668 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+20:26:44.669 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+20:26:44.682 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+20:26:44.684 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+20:26:44.685 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+20:26:44.686 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+20:26:44.687 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+20:26:44.688 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+20:26:44.689 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
 Payment agregÃ³ el Observer: services.ValidationTask
-20:14:05.837 [Test worker] WARN  UserStory3 - Se ejecuta test de CA4
+Routine agregÃ³ el Observer: services.ValidationTask
+20:26:44.692 [Test worker] WARN  UserStory3 - Se ejecuta test de CA4
+Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+Routine notifica a services.ValidationTask
+20:26:44.703 [Test worker] INFO  ValidationTask - Pasó el validador: PaymentValidator
+El resultado de Payment es: true
 Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
 Rutina de Tahiel : [Abdominales, Dominadas, BicicletaFija]
 Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
 La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
 Routine notifica a services.ValidationTask
-20:14:05.855 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
-El resultado de Routine es: true
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Routine notifica a services.ValidationTask
-20:14:05.858 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
-20:14:05.858 [Test worker] INFO  ValidationTask - Pasó el validador: PaymentValidator
+20:26:44.724 [Test worker] INFO  ValidationTask - Pasó el validador: PaymentValidator
+20:26:44.724 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
 ?[31mEl resultado de Core era {}y ahora es {RoutineValidator=true, PaymentValidator=true}?[0m
 ?[31mAsi que notifico a la UI?[0m
-El resultado de Payment es: true
-20:14:05.862 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:14:05.863 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:14:05.863 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:14:05.864 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:14:05.872 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:14:05.872 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:14:05.873 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:14:05.874 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:14:05.876 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:14:05.877 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
+El resultado de Routine es: true
+20:26:44.762 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+20:26:44.772 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+20:26:44.789 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+20:26:44.791 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+20:26:44.804 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+20:26:44.805 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+20:26:44.806 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+20:26:44.806 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+20:26:44.807 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+20:26:44.808 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
 Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
 Rutina de Tahiel : [Abdominales, Dominadas, BicicletaFija]
 Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
 La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-20:14:05.888 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-20:14:05.889 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:14:05.889 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:14:05.890 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:14:05.890 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:14:05.891 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:14:05.891 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
+20:26:45.136 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+20:26:45.136 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+20:26:45.137 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+20:26:45.137 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+20:26:45.139 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+20:26:45.139 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+20:26:45.140 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
 Payment agregÃ³ el Observer: services.ValidationTask
 Routine agregÃ³ el Observer: services.ValidationTask
-20:14:05.894 [Test worker] WARN  UserStory3 - Se ejecuta test de CA2
+20:26:45.147 [Test worker] WARN  UserStory3 - Se ejecuta test de CA2
 Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
 Rutina de Joan : [Trotar, Sentadillas]
 Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
 La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
 Routine notifica a services.ValidationTask
-20:14:05.898 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
+20:26:45.190 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
 ?[31mEl resultado de Core era {}y ahora es {RoutineValidator=false}?[0m
 ?[31mAsi que notifico a la UI?[0m
 El resultado de Routine es: false
@@ -230,7 +230,7 @@ El resultado de Routine es: false
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.8</a> at 9 jun. 2023 20:14:17</p>
+<a href="http://www.gradle.org">Gradle 6.8</a> at 9 jun. 2023 20:26:53</p>
 </div>
 </div>
 </body>
