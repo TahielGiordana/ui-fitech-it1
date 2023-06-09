@@ -136,11 +136,11 @@ public class HomeController implements Observer {
     public void update() {
         JTextArea resultLabel = home.getResultLabel();
         Map<String,Boolean> validatorsResult = validationTask.getResult();
-        String labelText = "No puede usar la máquina";
+        String labelText = "No puede usar la maquina";
         Boolean finalResult = true;
         for(Map.Entry<String,Boolean> entry : validatorsResult.entrySet()){
             if(!entry.getValue()){
-                labelText += "\n" + entry.getKey() + " Falló";
+                labelText += "\n" + entry.getKey() + " Fallo";
                 System.out.println(labelText);
                 resultLabel.setText(labelText);
                 finalResult = false;
@@ -148,7 +148,7 @@ public class HomeController implements Observer {
         }
         System.out.println("\u001B[33mHome Controller Update\u001B[0m");
         if(finalResult){
-            resultLabel.setText("Puede utilizar la máquina");
+            resultLabel.setText("Puede utilizar la maquina");
             resultLabel.setForeground(Color.GREEN);
             scoreTask.addScore(home.getUserNameTextField().getText(),10);
         }else{
@@ -164,7 +164,7 @@ public class HomeController implements Observer {
             System.out.println("\u001B[33mHome Controller Update\u001B[0m");
             log.info("metodo update - result: {} ", result);
             if (result != null) {
-                resultLabel.setText(result ? "Puede utilizar la máquina" : "No puede utilizar la máquina");
+                resultLabel.setText(result ? "Puede utilizar la maquina" : "No puede utilizar la maquina");
                 resultLabel.setForeground(result ? Color.GREEN : Color.RED);
                 if (result){
                     scoreTask.addScore(home.getUserNameTextField().getText(), 10);

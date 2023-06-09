@@ -24,53 +24,53 @@ public class UserStory4 {
 
     @BeforeEach
     public void setUp() throws FileNotFoundException {
-        /*String path = new File("validators").getAbsolutePath();
+        String path = new File("validators").getAbsolutePath();
         String machineCode = "Bicicleta1";
         String scoreTask = new File("").getAbsolutePath()+File.separator+"files"+File.separator+"Score.json";
         log.info("Path: {}", path);
         log.info("MachineCode: {}", machineCode);
         this.coreFitech = new CoreFitech(path,machineCode,scoreTask);
-        this.home = new Home(coreFitech);*/
+        this.home = new Home(coreFitech);
     }
 
     @Test
     public void CA1_WithoutMessage() {
-       /* log.warn("Se ejecuta test de CA1");
+        log.warn("Se ejecuta test de CA1");
         coreFitech.getValidationTask().processRequest("Tahiel");
 
         String resultMessage = home.getResultLabel().getText();
         log.warn(resultMessage);
-        assertEquals(resultMessage, "Puede utilizar la m�quina");*/
+        assertEquals(resultMessage, "Puede utilizar la maquina");
     }
 
     @Test
     public void CA2_RoutineValidatorFailed() {
-       /* log.warn("Se ejecuta test de CA2");
+        log.warn("Se ejecuta test de CA2");
         coreFitech.getValidationTask().processRequest("Joan");
 
         String resultMessage = home.getResultLabel().getText();
         log.warn(resultMessage);
-        assertEquals(resultMessage, "No puede usar la m�quina\nRoutineValidator Fall�");*/
+        assertEquals(resultMessage, "No puede usar la maquina\nRoutineValidator Fallo");
     }
 
     @Test
     public void CA3_PaymentValidatorFailed() {
-       /* log.warn("Se ejecuta test de CA3");
+        log.warn("Se ejecuta test de CA3");
         coreFitech.getValidationTask().processRequest("Evelyn");
 
         String resultMessage = home.getResultLabel().getText();
         log.warn(resultMessage);
-        assertEquals(resultMessage, "No puede usar la m�quina\nPaymentValidator Fall�");*/
+        assertEquals(resultMessage, "No puede usar la maquina\nPaymentValidator Fallo");
     }
 
     @Test
     public void CA4_PaymentValidatorFailed() {
-       /* log.warn("Se ejecuta test de CA4");
+        log.warn("Se ejecuta test de CA4");
         coreFitech.getValidationTask().processRequest("Tony");
 
         String resultMessage = home.getResultLabel().getText();
         log.warn(resultMessage);
-        assertEquals(resultMessage, "No puede usar la m�quina\nRoutineValidator Fall�\nPaymentValidator Fall�");*/
+        assertEquals(resultMessage, "No puede usar la maquina\nRoutineValidator Fallo\nPaymentValidator Fallo");
     }
 
 }

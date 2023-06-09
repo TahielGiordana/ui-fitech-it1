@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">4</div>
+<div class="counter">1</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">5.211s</div>
+<div class="counter">3.915s</div>
 <p>duration</p>
 </div>
 </td>
@@ -66,6 +66,9 @@
 <li>
 <a href="#tab1">Standard output</a>
 </li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -78,23 +81,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">CA1_WithoutMessage()</td>
-<td class="success">1.795s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">CA2_RoutineValidatorFailed()</td>
-<td class="success">0.161s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">CA3_PaymentValidatorFailed()</td>
-<td class="success">0.136s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
 <td class="success">CA4_PaymentValidatorFailed()</td>
-<td class="success">3.119s</td>
+<td class="success">3.915s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,243 +90,62 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>20:26:45.397 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:26:45.400 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:26:45.411 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:26:45.413 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:26:45.438 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:26:45.440 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:26:45.442 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:26:45.444 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:26:45.449 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:26:45.453 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Joan : [Trotar, Sentadillas]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-20:26:45.727 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-20:26:45.728 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:26:45.734 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:26:45.744 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:26:45.753 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:26:45.818 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:26:45.819 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
-Routine agregÃ³ el Observer: services.ValidationTask
+<pre>20:51:32.477 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+20:51:32.489 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+20:51:32.495 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+20:51:32.500 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+20:51:32.514 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+20:51:32.516 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+20:51:32.519 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+20:51:32.522 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+20:51:32.524 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+20:51:32.525 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+20:51:32.536 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+20:51:32.537 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+20:51:32.538 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+20:51:32.539 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+20:51:32.540 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+20:51:32.540 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+20:51:32.541 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
 Payment agregÃ³ el Observer: services.ValidationTask
+Routine agregÃ³ el Observer: services.ValidationTask
 Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
+20:51:36.085 [Test worker] WARN  UserStory3 - Se ejecuta test de CA4
 Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Tahiel : [Abdominales, Dominadas, BicicletaFija]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-20:26:48.289 [Test worker] WARN  UserStory3 - Se ejecuta test de CA4
+Routine notifica a services.ValidationTask
+20:51:36.088 [Test worker] INFO  ValidationTask - Falló el validador: PaymentValidator
+El resultado de Payment es: false
 Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
 Rutina de Tony : [Abdominales, Dominadas]
 Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
 La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
 Routine notifica a services.ValidationTask
-20:26:48.296 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
-El resultado de Routine es: false
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Routine notifica a services.ValidationTask
-20:26:48.300 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
-20:26:48.300 [Test worker] INFO  ValidationTask - Falló el validador: PaymentValidator
+20:51:36.094 [Test worker] INFO  ValidationTask - Falló el validador: PaymentValidator
+20:51:36.094 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
 ?[31mEl resultado de Core era {}y ahora es {RoutineValidator=false, PaymentValidator=false}?[0m
 ?[31mAsi que notifico a la UI?[0m
-No puede usar la máquina
-RoutineValidator Falló
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Tony : [Abdominales, Dominadas]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-No puede usar la máquina
-RoutineValidator Falló
-PaymentValidator Falló
+No puede usar la maquina
+RoutineValidator Fallo
+Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+No puede usar la maquina
+RoutineValidator Fallo
+PaymentValidator Fallo
 ?[33mHome Controller Update?[0m
 Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-El resultado de Payment es: false
-20:26:48.503 [Test worker] WARN  UserStory3 - No puede usar la máquina
-RoutineValidator Falló
-PaymentValidator Falló
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-20:26:48.511 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:26:48.514 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:26:48.515 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:26:48.516 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:26:48.528 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:26:48.530 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:26:48.531 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:26:48.531 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:26:48.535 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:26:48.535 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-20:26:48.548 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-20:26:48.550 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:26:48.551 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:26:48.552 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:26:48.553 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:26:48.554 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:26:48.554 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
-Routine agregÃ³ el Observer: services.ValidationTask
-Payment agregÃ³ el Observer: services.ValidationTask
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-20:26:48.630 [Test worker] WARN  UserStory3 - Se ejecuta test de CA3
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Evelyn : [Abdominales, BicicletaFija, Correr]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-Routine notifica a services.ValidationTask
-20:26:48.634 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
-El resultado de Routine es: true
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Routine notifica a services.ValidationTask
-20:26:48.637 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
-20:26:48.637 [Test worker] INFO  ValidationTask - Falló el validador: PaymentValidator
-?[31mEl resultado de Core era {}y ahora es {RoutineValidator=true, PaymentValidator=false}?[0m
-?[31mAsi que notifico a la UI?[0m
-No puede usar la máquina
-RoutineValidator Falló
-No puede usar la máquina
-RoutineValidator Falló
-PaymentValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-No puede usar la máquina
-PaymentValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-El resultado de Payment es: false
-20:26:48.643 [Test worker] WARN  UserStory3 - No puede usar la máquina
-PaymentValidator Falló
-20:26:48.651 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:26:48.651 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:26:48.653 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:26:48.653 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:26:48.662 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:26:48.663 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:26:48.664 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:26:48.664 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:26:48.666 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:26:48.667 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-20:26:48.675 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-20:26:48.676 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:26:48.676 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:26:48.677 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:26:48.678 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:26:48.678 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:26:48.679 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
-Routine agregÃ³ el Observer: services.ValidationTask
-Payment agregÃ³ el Observer: services.ValidationTask
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Joan : [Trotar, Sentadillas]
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-Rutina de Evelyn : [Abdominales, BicicletaFija, Correr]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-20:26:48.793 [Test worker] WARN  UserStory3 - Se ejecuta test de CA2
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Joan : [Trotar, Sentadillas]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-Routine notifica a services.ValidationTask
-20:26:48.797 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
 El resultado de Routine es: false
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Routine notifica a services.ValidationTask
-20:26:48.801 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
-20:26:48.802 [Test worker] INFO  ValidationTask - Pasó el validador: PaymentValidator
-?[31mEl resultado de Core era {}y ahora es {RoutineValidator=false, PaymentValidator=true}?[0m
-?[31mAsi que notifico a la UI?[0m
-No puede usar la máquina
-RoutineValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-No puede usar la máquina
-RoutineValidator Falló
-No puede usar la máquina
-RoutineValidator Falló
-PaymentValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-No puede usar la máquina
-PaymentValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-El resultado de Payment es: true
-20:26:48.809 [Test worker] WARN  UserStory3 - No puede usar la máquina
-RoutineValidator Falló
-20:26:48.814 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
-20:26:48.814 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
-20:26:48.816 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
-20:26:48.818 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
-20:26:48.824 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
-20:26:48.824 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
-20:26:48.825 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
-20:26:48.825 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
-20:26:48.827 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
-20:26:48.830 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
-20:26:48.839 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
-20:26:48.839 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
-20:26:48.840 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
-20:26:48.840 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
-20:26:48.841 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
-20:26:48.841 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
-20:26:48.842 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
-Payment agregÃ³ el Observer: services.ValidationTask
-Routine agregÃ³ el Observer: services.ValidationTask
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+20:51:36.264 [Test worker] WARN  UserStory3 - No puede usar la maquina
+RoutineValidator Fallo
+PaymentValidator Fallo
 Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Joan : [Trotar, Sentadillas]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-20:26:48.933 [Test worker] WARN  UserStory3 - Se ejecuta test de CA1
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Routine notifica a services.ValidationTask
-20:26:48.936 [Test worker] INFO  ValidationTask - Pasó el validador: PaymentValidator
-El resultado de Payment es: true
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Tahiel : [Abdominales, Dominadas, BicicletaFija]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
-Routine notifica a services.ValidationTask
-20:26:48.940 [Test worker] INFO  ValidationTask - Pasó el validador: PaymentValidator
-20:26:48.940 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
-?[31mEl resultado de Core era {}y ahora es {RoutineValidator=true, PaymentValidator=true}?[0m
-?[31mAsi que notifico a la UI?[0m
-No puede usar la máquina
-RoutineValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-?[33mHome Controller Update?[0m
-Se van a escribir puntajes en C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-7
-Succesful update
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-No puede usar la máquina
-RoutineValidator Falló
-No puede usar la máquina
-RoutineValidator Falló
-PaymentValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-No puede usar la máquina
-PaymentValidator Falló
-?[33mHome Controller Update?[0m
-Se buscan puntajes en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Score.json
-El resultado de Routine es: true
-20:26:50.598 [Test worker] WARN  UserStory3 - Puede utilizar la máquina
-Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
-Rutina de Tahiel : [Abdominales, Dominadas, BicicletaFija]
-Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
-La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 </pre>
 </span>
 </div>
@@ -350,7 +157,7 @@ La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.8</a> at 9 jun. 2023 20:26:53</p>
+<a href="http://www.gradle.org">Gradle 6.8</a> at 9 jun. 2023 20:51:38</p>
 </div>
 </div>
 </body>
