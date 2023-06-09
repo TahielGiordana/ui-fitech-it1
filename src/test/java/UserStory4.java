@@ -24,13 +24,13 @@ public class UserStory4 {
 
     @BeforeEach
     public void setUp() throws FileNotFoundException {
-        String path = new File("validators").getAbsolutePath();
+        /*String path = new File("validators").getAbsolutePath();
         String machineCode = "Bicicleta1";
         String scoreTask = new File("").getAbsolutePath()+File.separator+"files"+File.separator+"Score.json";
         log.info("Path: {}", path);
         log.info("MachineCode: {}", machineCode);
         this.coreFitech = new CoreFitech(path,machineCode,scoreTask);
-        this.home = new Home(coreFitech);
+        this.home = new Home(coreFitech);*/
     }
 
     @Test
