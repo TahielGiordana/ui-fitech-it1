@@ -22,7 +22,6 @@ allprojects {
     }
 }
 
-
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
@@ -42,7 +41,18 @@ task runWithLog4j {
     }
 }
 
-
 test {
     useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+test {
+    jacoco {
+        reports {
+            html.destination file("test/reports")
+        }
+    }
 }

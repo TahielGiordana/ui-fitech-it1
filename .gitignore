@@ -9,6 +9,7 @@ build/classes/java/main/
 lib
 /lib/*
 /lib
+/bin
 .idea
 *.iws
 *.iml
