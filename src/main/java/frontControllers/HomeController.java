@@ -113,6 +113,7 @@ public class HomeController implements Observer {
             check.setBackground(null);
             check.setForeground(Color.BLACK);
             check.setFont(new Font("Poppins", Font.PLAIN, 28));
+            check.setSelected(true);
             check.addItemListener(new ItemListener() {
                 @Override
                 public void itemStateChanged(ItemEvent e) {
@@ -121,23 +122,16 @@ public class HomeController implements Observer {
                     resultLabel.setText("");
                     validatorBtn.setEnabled(true);
                     if(e.getStateChange() == ItemEvent.SELECTED){
-                        //validationTask.checkValidator(checkText, true);
+                        validationTask.toggleValidatorCheck(checkText);
                     }else{
-                        //validationTask.checkValidator(checkText,false);
+                        validationTask.toggleValidatorCheck(checkText);
                     }
                 }
             });
-            check.setSelected(true);
             validatorsPanel.add(check);
             checkBoxes.add(check);
         }
     }
-
-    /*private void enableAllCheckBoxes(boolean bool){
-        for(JCheckBox checkBox : checkBoxes){
-            checkBox.setEnabled(bool);
-        }
-    }*/
 
     @Override
     public void update() {
