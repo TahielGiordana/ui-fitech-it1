@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class UserStory3</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class UserStory3</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; UserStory3</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.390s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">CA1_NoneValidator()</td>
+<td class="success">0.044s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CA2_RoutineValidator()</td>
+<td class="success">0.065s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CA3_PaymentValidator()</td>
+<td class="success">0.223s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CA4_BothValidators()</td>
+<td class="success">0.058s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>22:10:49.991 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+22:10:50.011 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+22:10:50.017 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+22:10:50.020 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+22:10:50.032 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+22:10:50.034 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+22:10:50.035 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+22:10:50.037 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+22:10:50.042 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+22:10:50.043 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+22:10:50.052 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+22:10:50.053 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+22:10:50.054 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+22:10:50.056 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+22:10:50.057 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+22:10:50.059 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+22:10:50.060 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
+Payment agregÃ³ el Observer: services.ValidationTask
+Routine agregÃ³ el Observer: services.ValidationTask
+22:10:50.070 [Test worker] WARN  UserStory3 - Se ejecuta test de CA3
+Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+Routine notifica a services.ValidationTask
+22:10:50.102 [Test worker] INFO  ValidationTask - Falló el validador: PaymentValidator
+?[31mEl resultado de Core era {}y ahora es {PaymentValidator=false}?[0m
+?[31mAsi que notifico a la UI?[0m
+El resultado de Payment es: false
+22:10:50.153 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+22:10:50.154 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+22:10:50.156 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+22:10:50.157 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+22:10:50.165 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+22:10:50.168 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+22:10:50.169 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+22:10:50.170 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+22:10:50.171 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+22:10:50.172 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+22:10:50.184 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+22:10:50.185 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+22:10:50.186 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+22:10:50.186 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+22:10:50.188 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+22:10:50.189 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+22:10:50.190 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
+Routine agregÃ³ el Observer: services.ValidationTask
+Payment agregÃ³ el Observer: services.ValidationTask
+22:10:50.193 [Test worker] WARN  UserStory3 - Se ejecuta test de CA1
+?[31mEl resultado de Core era {}y ahora es {}?[0m
+?[31mAsi que notifico a la UI?[0m
+22:10:50.198 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+22:10:50.199 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+22:10:50.200 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+22:10:50.201 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+22:10:50.207 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+22:10:50.208 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+22:10:50.209 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+22:10:50.209 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+22:10:50.211 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+22:10:50.211 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+22:10:50.218 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+22:10:50.219 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+22:10:50.220 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+22:10:50.222 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+22:10:50.223 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+22:10:50.224 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+22:10:50.225 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
+Routine agregÃ³ el Observer: services.ValidationTask
+Payment agregÃ³ el Observer: services.ValidationTask
+22:10:50.229 [Test worker] WARN  UserStory3 - Se ejecuta test de CA4
+Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
+Rutina de Tahiel : [Abdominales, Dominadas, BicicletaFija]
+Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
+La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
+Routine notifica a services.ValidationTask
+22:10:50.237 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
+El resultado de Routine es: true
+Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+Routine notifica a services.ValidationTask
+22:10:50.251 [Test worker] INFO  ValidationTask - Pasó el validador: RoutineValidator
+22:10:50.252 [Test worker] INFO  ValidationTask - Pasó el validador: PaymentValidator
+?[31mEl resultado de Core era {}y ahora es {RoutineValidator=true, PaymentValidator=true}?[0m
+?[31mAsi que notifico a la UI?[0m
+El resultado de Payment es: true
+22:10:50.261 [Test worker] INFO  UserStory3 - Path: C:\Users\liend\Tony\Fitech\ui-fitech-it1\validators
+22:10:50.262 [Test worker] INFO  UserStory3 - MachineCode: Bicicleta1
+22:10:50.265 [Test worker] INFO  ValidatorFinder - Cantidad de archivos listados: 2
+22:10:50.267 [Test worker] INFO  ValidatorFinder - File encontrado: PaymentValidator-1.0-SNAPSHOT.jar
+Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
+Rutina de Tahiel : [Abdominales, Dominadas, BicicletaFija]
+Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
+La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
+22:10:50.276 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 4 - clases [class PaymentValidator$1, class PaymentValidator$2, class PaymentValidator, class services.PaymentFinder] 
+Se buscan Pagos en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\Payments.json
+22:10:50.276 [Test worker] WARN  ValidatorFinder - PaymentValidator$1 No asignable
+22:10:50.280 [Test worker] WARN  ValidatorFinder - PaymentValidator$2 No asignable
+22:10:50.281 [Test worker] INFO  ValidatorFinder - PaymentValidator Asignable
+22:10:50.282 [Test worker] WARN  ValidatorFinder - services.PaymentFinder No asignable
+22:10:50.283 [Test worker] INFO  ValidatorFinder - File encontrado: RoutineValidator-1.0-SNAPSHOT.jar
+22:10:50.293 [Test worker] INFO  ValidatorFinder - Lista de Clases Encontradas: size 5 - clases [class RoutineValidator$1, class RoutineValidator$2, class RoutineValidator, class services.ExercisesInMachineFinder, class services.RoutineFinder] 
+22:10:50.299 [Test worker] WARN  ValidatorFinder - RoutineValidator$1 No asignable
+22:10:50.300 [Test worker] WARN  ValidatorFinder - RoutineValidator$2 No asignable
+22:10:50.301 [Test worker] INFO  ValidatorFinder - RoutineValidator Asignable
+22:10:50.310 [Test worker] WARN  ValidatorFinder - services.ExercisesInMachineFinder No asignable
+22:10:50.311 [Test worker] WARN  ValidatorFinder - services.RoutineFinder No asignable
+22:10:50.313 [Test worker] INFO  ValidatorFinder - Cantidad de clases instanciadas: 2
+Payment agregÃ³ el Observer: services.ValidationTask
+Routine agregÃ³ el Observer: services.ValidationTask
+22:10:50.316 [Test worker] WARN  UserStory3 - Se ejecuta test de CA2
+Se buscan Rutinas de Usuarios en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\UsersRoutine.json
+Rutina de Joan : [Trotar, Sentadillas]
+Se buscan Ejercicios por MÃ¡quina en: C:\Users\liend\Tony\Fitech\ui-fitech-it1\files\ExercisesByMachine.json
+La mÃ¡quina Bicicleta1 permite hacer: [BicicletaFija]
+Routine notifica a services.ValidationTask
+22:10:50.321 [Test worker] INFO  ValidationTask - Falló el validador: RoutineValidator
+?[31mEl resultado de Core era {}y ahora es {RoutineValidator=false}?[0m
+?[31mAsi que notifico a la UI?[0m
+El resultado de Routine es: false
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.8</a> at 9 jun. 2023 22:10:59</p>
+</div>
+</div>
+</body>
+</html>
